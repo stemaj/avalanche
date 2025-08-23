@@ -3,6 +3,7 @@
 
 #include <olcTemplate/game/src/state/levelState.hpp>
 #include <olcTemplate/game/physicalWorld.hpp>
+#include <random>
 
 namespace stemaj {
 
@@ -16,6 +17,7 @@ public:
   virtual ~Scene();
 
   PT<int> MountainIds;
+  int NextSpawnId = 1;
 
   std::vector<PT<float>> GetPolygon(const int id) { 
     auto ret = _world.GetPolygons()[id];
@@ -26,6 +28,7 @@ public:
   Render* GetRender() override;
 
 private:
+  float time = 0.0f;
   std::unordered_map<int, std::vector<PT<float>>> _mountainCoords;
 
   PT<float> _worldUpperLeft;

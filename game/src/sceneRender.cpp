@@ -17,38 +17,36 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
   auto S = static_cast<Scene*>(state);
 
   pge->Clear(olc::DARK_BLUE);
-  pge->DrawString({ 10, 10 }, "SceneRender", olc::WHITE);
 
   auto decalById = [&](int id){
-		if (id < 10) return _rThing.get()->Decal();
+		if (id < 1000) return _rThing.get()->Decal();
     return _rMountain.get()->Decal();
 	};
 
-  auto vPts = S->GetPolygon(101);
+  std::vector<PT<float>> vPts;
   std::array<olc::vf2d, 4> arr = {};
-  {
-    arr[0].x = vPts[0].x; arr[0].y = vPts[0].y;
-    arr[1].x = vPts[1].x; arr[1].y = vPts[1].y;
-    arr[2].x = vPts[2].x; arr[2].y = vPts[2].y;
-    arr[3].x = vPts[3].x; arr[3].y = vPts[3].y;
-  }
-  pge->DrawWarpedDecal(decalById(101), arr);
 
-  vPts = S->GetPolygon(1);
+  for (int i = S->MountainIds.x; i <= S->MountainIds.y; i++)
   {
-    arr[0].x = vPts[0].x; arr[0].y = vPts[0].y;
-    arr[1].x = vPts[1].x; arr[1].y = vPts[1].y;
-    arr[2].x = vPts[2].x; arr[2].y = vPts[2].y;
-    arr[3].x = vPts[3].x; arr[3].y = vPts[3].y;
+    vPts = S->GetPolygon(i);
+    {
+      arr[0].x = vPts[0].x; arr[0].y = vPts[0].y;
+      arr[1].x = vPts[1].x; arr[1].y = vPts[1].y;
+      arr[2].x = vPts[2].x; arr[2].y = vPts[2].y;
+      arr[3].x = vPts[3].x; arr[3].y = vPts[3].y;
+    }
+    pge->DrawWarpedDecal(decalById(i), arr);
   }
-  pge->DrawWarpedDecal(decalById(1), arr);
 
-  vPts = S->GetPolygon(2);
+  for (int i = 1; i < S->NextSpawnId; i++)
   {
-    arr[0].x = vPts[0].x; arr[0].y = vPts[0].y;
-    arr[1].x = vPts[1].x; arr[1].y = vPts[1].y;
-    arr[2].x = vPts[2].x; arr[2].y = vPts[2].y;
-    arr[3].x = vPts[3].x; arr[3].y = vPts[3].y;
+    vPts = S->GetPolygon(i);
+    {
+      arr[0].x = vPts[0].x; arr[0].y = vPts[0].y;
+      arr[1].x = vPts[1].x; arr[1].y = vPts[1].y;
+      arr[2].x = vPts[2].x; arr[2].y = vPts[2].y;
+      arr[3].x = vPts[3].x; arr[3].y = vPts[3].y;
+    }
+    pge->DrawWarpedDecal(decalById(i), arr);
   }
-  pge->DrawWarpedDecal(decalById(2), arr);
 }

@@ -1,1 +1,2 @@
-easy_mountainIds = { 101, 102 }
+easy_mountainIds = { 1001, 1007 }
+
