@@ -1,0 +1,3 @@
+[submodule "olcTemplate"]
+	path = olcTemplate
+	url = git@github-privat:stemaj/olcTemplate.git

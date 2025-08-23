@@ -1,0 +1,167 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "make -C ~/dev/avalanche/solution -j8",
+      "options": {"cwd": "solution"},
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "focus": true,
+        "clear": true
+      }
+    },
+    {
+      "label": "build release",
+      "type": "shell",
+      "command": "make -C ~/dev/avalanche/solution -j8 config=release",
+      "options": {"cwd": "solution"},
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation": {
+        "focus": true,
+        "clear": true
+      }
+    },
+    {
+      "label": "test",
+      "type": "shell",
+      "command": "make -C ~/dev/avalanche/solution -j8 config=test && ~/dev/avalanche/solution/bin/Test/Avalanche",
+      "options": {"cwd": "solution"},
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+      },
+      "presentation": {
+        "focus": true,
+        "clear": true
+      }
+    },
+    {
+      "label": "clean",
+      "type": "shell",
+      "command": "make -C ~/dev/avalanche/solution -j8 clean",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation": {
+        "focus": true,
+        "clear": true
+      }
+    },
+    {
+      "label": "run",
+      "type": "shell",
+      "command": "./solution/bin/Debug/Avalanche",
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": true,
+      },
+      "presentation": {
+        "focus": true,
+        "clear": true
+      }
+    },
+    {
+      "label": "run release",
+      "type": "shell",
+      "command": "./solution/bin/Release/Avalanche",
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": false,
+      },
+      "presentation": {
+        "focus": true,
+        "clear": true
+      }
+    },
+    {
+      "label": "build on mac",
+      "type": "shell",
+      "command": "./.vscode/buildOnMac.sh",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation": {
+        "focus": true,
+        "clear": true
+      }
+    },
+    {
+      "label": "Emscripten",
+      "type": "shell",
+      "command": "find",
+      "args": [
+        ".",
+        "-name",
+        "\"*.cpp\" -o -name \"*.c\"",
+        ">",
+        "file_list.txt",
+        "&&",
+        "~/tools/emsdk/upstream/emscripten/em++",
+        "-v",
+        "-std=c++2a",
+        "-O2",
+        "-sUSE_FREETYPE=1",
+        "-sUSE_SDL_MIXER=2",
+        "-sALLOW_MEMORY_GROWTH=1",
+        "-sMAX_WEBGL_VERSION=2",
+        "-sMIN_WEBGL_VERSION=2",
+        "-sUSE_LIBPNG=1",
+        "-sERROR_ON_UNDEFINED_SYMBOLS=0",
+        "-I./",
+        "-I/usr/include/SDL2",
+        "-IolcTemplate/sdk/imgui-1.90.4",
+        "-IolcTemplate/sdk/imgui-1.90.4/backends",
+        "-IolcTemplate/sdk/sol2-3.3.0",
+        "-IolcTemplate/sdk/lua-5.4.2/include",
+        "-IolcTemplate/sdk/soloud/include",
+        "-IolcTemplate/sdk/box2d/include",
+        "-LolcTemplate/sdk/lua-5.4.2/emscripten",
+        "-LolcTemplate/sdk/soloud/emscripten",
+        "-LolcTemplate/sdk/box2d/emscripten",
+        "-L/usr/lib",
+        "-llua54emscripten",
+        "-ldl",
+        "-lm",
+        "-lsoloud",
+        "-lbox2d",
+        "$(<file_list.txt)",
+        "-o",
+        "./index.html",
+        "--shell-file",
+        "olcTemplate/shell_minimal.html",
+        "--preload-file",
+        "./assets",
+        "--preload-file",
+        "./olcTemplate/assets",
+        "--preload-file",
+        "./scripts",
+        "&&",
+        "~/tools/emsdk/upstream/emscripten/emrun",
+        "./index.html"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "focus": true,
+        "clear": true
+      }
+    },
+  ]
+}
