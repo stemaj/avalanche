@@ -29,9 +29,12 @@ Render* Scene::GetRender()
 
 void Scene::LoadLevelData()
 {
-  LS.Init("scripts/scenes.lua", false);
-
   _world.LoadFromScript("world", _scenery, &_userData);
+
+  LS.Init("scripts/scenes.lua", false);
+  
+  MountainIds = LS.PTInt(_scenery + "_mountainIds");
+  ;
 }
 
 void Scene::SaveLevelData()

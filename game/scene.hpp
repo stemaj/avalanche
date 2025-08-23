@@ -15,6 +15,8 @@ public:
   explicit Scene(const std::string& scenery);
   virtual ~Scene();
 
+  PT<int> MountainIds;
+
   std::vector<PT<float>> GetPolygon(const int id) { 
     auto ret = _world.GetPolygons()[id];
     return ret.empty() ? std::vector<PT<float>>{} : ret;
