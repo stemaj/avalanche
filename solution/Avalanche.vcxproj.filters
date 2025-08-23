@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="olcTemplate">
+      <UniqueIdentifier>{3F08EF69-ABBD-675F-34B2-6136A0665E63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\game">
+      <UniqueIdentifier>{15FC433A-01F5-628C-2A27-4811167F4298}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\game\src">
+      <UniqueIdentifier>{B9699275-A5F8-1B3F-4E17-303A3A852CE5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\game\src\engine">
+      <UniqueIdentifier>{2BCCBC96-97D9-EA7C-20C0-E6678CCCB633}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\sdk">
+      <UniqueIdentifier>{1D79DB5E-8904-4923-9215-CC17FE1FA523}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\sdk\box2d">
+      <UniqueIdentifier>{78F9F1B3-E465-ADAE-AD59-450C1985CF16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\sdk\box2d\include">
+      <UniqueIdentifier>{78844F3B-E49C-3665-AD49-C6FE1921CBFE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\sdk\doctest-2.4.11">
+      <UniqueIdentifier>{80C26019-6CE8-2A80-552E-B04B41F34F4C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\sdk\freetype-2.13.1">
+      <UniqueIdentifier>{2D956D4B-9978-7C8B-A27B-AAC70EDE42DC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\sdk\freetype-2.13.1\include">
+      <UniqueIdentifier>{2D0532D2-9994-F3BC-A290-D4D40E9F2EC9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\sdk\freetype-2.13.1\include\freetype">
+      <UniqueIdentifier>{AD03848E-99AC-EBBD-C242-073DAE4A06FF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\sdk\freetype-2.13.1\include\freetype\config">
+      <UniqueIdentifier>{1FBCF298-8BA3-DD8E-9491-DF0A00F88051}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\sdk\imgui-1.90.4">
+      <UniqueIdentifier>{EBCD7AA0-D788-6A4C-8040-E3966CDAB4DC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\sdk\imgui-1.90.4\backends">
+      <UniqueIdentifier>{A2FD195D-0EC2-184D-D727-491743ABB482}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\sdk\lua-5.4.2">
+      <UniqueIdentifier>{5FB9CB03-CB7B-FF8D-142C-8E1A802DD86B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\sdk\lua-5.4.2\include">
+      <UniqueIdentifier>{5F3BC248-CBA9-17C8-1493-D2C780400D64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\sdk\lz4-1.10.0">
+      <UniqueIdentifier>{3E6FC832-2A7F-7403-9338-D9217F67639C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\sdk\soloud">
+      <UniqueIdentifier>{AF4CD359-9B46-FCAB-84B3-92BC704C6218}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\sdk\soloud\include">
+      <UniqueIdentifier>{AF1E9091-9B44-5AF8-848A-DFC3704F7FC4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\sdk\utfcpp">
+      <UniqueIdentifier>{8B9AD45E-7794-FDB0-6001-94C14C9A631D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\sdk\utfcpp\utf8">
+      <UniqueIdentifier>{EEDAC448-5AE8-F22E-E3CE-EE194FDBBEE5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\game\src\render">
+      <UniqueIdentifier>{15C070B4-81CD-9E9A-0AB4-9A8576C06A51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\game\src\render\helper">
+      <UniqueIdentifier>{F15A66BB-DD96-6925-46A9-811C32041240}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\game\src\state">
+      <UniqueIdentifier>{36F4CFFD-2204-7CCE-8BBD-E0EC77EC6A67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\game\src\tools">
+      <UniqueIdentifier>{6689DFFD-5299-8BCE-BB52-F0ECA7817A67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\sdk\json-nlohmann-3.11.3">
+      <UniqueIdentifier>{0CE37C51-F8C9-3E49-A11A-A5668DE0B7AF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\sdk\sol2-3.3.0">
+      <UniqueIdentifier>{B88C0774-A49C-B344-0D56-1863F984A2DD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\sdk\sol2-3.3.0\sol">
+      <UniqueIdentifier>{82932312-6EB9-ED78-57FF-724443C41245}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game">
+      <UniqueIdentifier>{9F35977C-8B6C-980D-3459-7E10206F140F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\game\src\engine\src">
+      <UniqueIdentifier>{CF548103-3B38-9043-443B-BE7FB09D5694}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\game\src\render\helper\src">
+      <UniqueIdentifier>{95D6406C-8128-185C-6A47-556C56383145}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\game\src\render\src">
+      <UniqueIdentifier>{B92D8100-2511-9040-2E14-BE7C9A765691}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\game\src\state\src">
+      <UniqueIdentifier>{5A8AAF90-46B0-79F7-2FF6-FEC21BBB9EC3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\game\src\tools\src">
+      <UniqueIdentifier>{8A37E68B-765D-B0F2-5FA3-35BE4B68D5BE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\src">
+      <UniqueIdentifier>{43589BBA-2F25-F6C5-583E-E46D446A2B54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\assets">
+      <UniqueIdentifier>{4E747DCE-3A58-3E24-A3B8-38778FBB28A6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\assets\sheets">
+      <UniqueIdentifier>{F6F9238E-62BC-5718-AB6C-E6A4176E30F6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scripts">
+      <UniqueIdentifier>{6D076287-D9E6-E022-E2FE-6BF94E5D4784}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\assets\png">
+      <UniqueIdentifier>{2F49CFFD-1B43-F84F-04B0-8E60F0485EBC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\assets\fonts">
+      <UniqueIdentifier>{741512AE-603A-612E-8985-46BE7509604C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="olcTemplate\assets\wav">
+      <UniqueIdentifier>{5865CFFD-445F-F84F-2DCC-8E6019655EBC}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\genie.lua" />
+    <None Include="..\olcTemplate\assets\sheets\Sing_With_Me_3.lua">
+      <Filter>olcTemplate\assets\sheets</Filter>
+    </None>
+    <None Include="..\olcTemplate\assets\sheets\pretty_pretty_bg_25pc.lua">
+      <Filter>olcTemplate\assets\sheets</Filter>
+    </None>
+    <None Include="..\olcTemplate\assets\sheets\pretty_pretty_ch_25pc.lua">
+      <Filter>olcTemplate\assets\sheets</Filter>
+    </None>
+    <None Include="..\scripts\settings.lua">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="..\scripts\mainMenu.lua">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="..\olcTemplate\assets\fonts\dogica.ttf">
+      <Filter>olcTemplate\assets\fonts</Filter>
+    </None>
+    <None Include="..\olcTemplate\assets\wav\breaking-news-177297.mp3">
+      <Filter>olcTemplate\assets\wav</Filter>
+    </None>
+    <None Include="..\olcTemplate\assets\wav\groovy-energy-sports-80-bpm-short-12275.mp3">
+      <Filter>olcTemplate\assets\wav</Filter>
+    </None>
+    <None Include="..\olcTemplate\assets\wav\hard-rock-logo-108960.mp3">
+      <Filter>olcTemplate\assets\wav</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\olcTemplate\game\src\engine\imgui_impl_pge.h">
+      <Filter>olcTemplate\game\src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\engine\olcPGEX_QuickGUI.h">
+      <Filter>olcTemplate\game\src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\engine\olcPGEX_TTF.h">
+      <Filter>olcTemplate\game\src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\engine\olcPGEX_TransformedView.h">
+      <Filter>olcTemplate\game\src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\engine\olcPixelGameEngine.h">
+      <Filter>olcTemplate\game\src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\engine\olcUTIL_Animate2D.h">
+      <Filter>olcTemplate\game\src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\engine\olcUTIL_Camera2D.h">
+      <Filter>olcTemplate\game\src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\engine\olcUTIL_Geometry2D.h">
+      <Filter>olcTemplate\game\src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\engine\olcUTIL_Geometry2D_v2.h">
+      <Filter>olcTemplate\game\src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\engine\olcUTIL_Palette.h">
+      <Filter>olcTemplate\game\src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_api.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_block_allocator.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_body.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_broad_phase.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_chain_shape.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_circle_shape.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_collision.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_common.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_contact.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_contact_manager.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_distance.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_distance_joint.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_draw.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_dynamic_tree.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_edge_shape.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_fixture.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_friction_joint.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_gear_joint.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_growable_stack.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_joint.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_math.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_motor_joint.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_mouse_joint.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_polygon_shape.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_prismatic_joint.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_pulley_joint.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_revolute_joint.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_rope.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_settings.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_shape.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_stack_allocator.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_time_of_impact.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_time_step.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_timer.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_types.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_weld_joint.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_wheel_joint.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_world.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\b2_world_callbacks.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\box2d\include\box2d.h">
+      <Filter>olcTemplate\sdk\box2d\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\doctest-2.4.11\doctest.h">
+      <Filter>olcTemplate\sdk\doctest-2.4.11</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\ft2build.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\freetype.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftadvanc.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftbbox.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftbdf.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftbitmap.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftbzip2.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftcache.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftchapters.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftcid.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftcolor.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftdriver.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\fterrdef.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\fterrors.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftfntfmt.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftgasp.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftglyph.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftgxval.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftgzip.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftimage.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftincrem.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftlcdfil.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftlist.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftlogging.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftlzw.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftmac.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftmm.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftmodapi.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftmoderr.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftotval.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftoutln.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftparams.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftpfr.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftrender.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftsizes.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftsnames.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftstroke.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftsynth.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftsystem.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\fttrigon.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\fttypes.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ftwinfnt.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\otsvg.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\t1tables.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\ttnameid.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\tttables.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\tttags.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\config\ftconfig.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\config\ftheader.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\config\ftmodule.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\config\ftoption.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\config\ftstdlib.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\config\integer-types.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\config\mac-support.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\freetype-2.13.1\include\freetype\config\public-macros.h">
+      <Filter>olcTemplate\sdk\freetype-2.13.1\include\freetype\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\imgui-1.90.4\imconfig.h">
+      <Filter>olcTemplate\sdk\imgui-1.90.4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\imgui-1.90.4\imgui.h">
+      <Filter>olcTemplate\sdk\imgui-1.90.4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\imgui-1.90.4\imgui_internal.h">
+      <Filter>olcTemplate\sdk\imgui-1.90.4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\imgui-1.90.4\imstb_rectpack.h">
+      <Filter>olcTemplate\sdk\imgui-1.90.4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\imgui-1.90.4\imstb_textedit.h">
+      <Filter>olcTemplate\sdk\imgui-1.90.4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\imgui-1.90.4\imstb_truetype.h">
+      <Filter>olcTemplate\sdk\imgui-1.90.4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\imgui-1.90.4\backends\imgui_impl_opengl2.h">
+      <Filter>olcTemplate\sdk\imgui-1.90.4\backends</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\imgui-1.90.4\backends\imgui_impl_opengl3.h">
+      <Filter>olcTemplate\sdk\imgui-1.90.4\backends</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\imgui-1.90.4\backends\imgui_impl_opengl3_loader.h">
+      <Filter>olcTemplate\sdk\imgui-1.90.4\backends</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\lua-5.4.2\include\lauxlib.h">
+      <Filter>olcTemplate\sdk\lua-5.4.2\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\lua-5.4.2\include\lua.h">
+      <Filter>olcTemplate\sdk\lua-5.4.2\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\lua-5.4.2\include\luaconf.h">
+      <Filter>olcTemplate\sdk\lua-5.4.2\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\lua-5.4.2\include\lualib.h">
+      <Filter>olcTemplate\sdk\lua-5.4.2\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\lz4-1.10.0\lz4.h">
+      <Filter>olcTemplate\sdk\lz4-1.10.0</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_audiosource.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_ay.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_bassboostfilter.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_biquadresonantfilter.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_bus.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_c.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_dcremovalfilter.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_duckfilter.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_echofilter.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_eqfilter.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_error.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_fader.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_fft.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_fftfilter.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_file.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_file_hack_off.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_file_hack_on.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_filter.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_flangerfilter.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_freeverbfilter.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_internal.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_lofifilter.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_misc.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_monotone.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_noise.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_openmpt.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_queue.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_robotizefilter.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_sfxr.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_speech.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_tedsid.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_thread.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_vic.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_vizsn.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_wav.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_waveshaperfilter.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\soloud_wavstream.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\soloud\include\zx7decompress.h">
+      <Filter>olcTemplate\sdk\soloud\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\utfcpp\utf8.h">
+      <Filter>olcTemplate\sdk\utfcpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\utfcpp\utf8\checked.h">
+      <Filter>olcTemplate\sdk\utfcpp\utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\utfcpp\utf8\core.h">
+      <Filter>olcTemplate\sdk\utfcpp\utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\utfcpp\utf8\cpp11.h">
+      <Filter>olcTemplate\sdk\utfcpp\utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\utfcpp\utf8\cpp17.h">
+      <Filter>olcTemplate\sdk\utfcpp\utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\utfcpp\utf8\cpp20.h">
+      <Filter>olcTemplate\sdk\utfcpp\utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\utfcpp\utf8\unchecked.h">
+      <Filter>olcTemplate\sdk\utfcpp\utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\animation.hpp">
+      <Filter>olcTemplate\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\assets.hpp">
+      <Filter>olcTemplate\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\coordinates.hpp">
+      <Filter>olcTemplate\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\fonts.hpp">
+      <Filter>olcTemplate\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\game.hpp">
+      <Filter>olcTemplate\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\geometryWrapper.hpp">
+      <Filter>olcTemplate\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\gui.hpp">
+      <Filter>olcTemplate\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\guiElements.hpp">
+      <Filter>olcTemplate\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\input.hpp">
+      <Filter>olcTemplate\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\loadsave.hpp">
+      <Filter>olcTemplate\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\olcTemplate.hpp">
+      <Filter>olcTemplate\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\palette.hpp">
+      <Filter>olcTemplate\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\physicalWorld.hpp">
+      <Filter>olcTemplate\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\quaternion.hpp">
+      <Filter>olcTemplate\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\room3d.hpp">
+      <Filter>olcTemplate\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\sound.hpp">
+      <Filter>olcTemplate\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\textbox.hpp">
+      <Filter>olcTemplate\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\render\introRender.hpp">
+      <Filter>olcTemplate\game\src\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\render\levelRender.hpp">
+      <Filter>olcTemplate\game\src\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\render\loadingRender.hpp">
+      <Filter>olcTemplate\game\src\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\render\logoRender.hpp">
+      <Filter>olcTemplate\game\src\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\render\mainMenuRender.hpp">
+      <Filter>olcTemplate\game\src\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\render\render.hpp">
+      <Filter>olcTemplate\game\src\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\render\renderCutscene.hpp">
+      <Filter>olcTemplate\game\src\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\render\helper\olcHelper.hpp">
+      <Filter>olcTemplate\game\src\render\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\state\cutscene.hpp">
+      <Filter>olcTemplate\game\src\state</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\state\introState.hpp">
+      <Filter>olcTemplate\game\src\state</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\state\levelState.hpp">
+      <Filter>olcTemplate\game\src\state</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\state\loading.hpp">
+      <Filter>olcTemplate\game\src\state</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\state\logoState.hpp">
+      <Filter>olcTemplate\game\src\state</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\state\mainMenuState.hpp">
+      <Filter>olcTemplate\game\src\state</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\state\state.hpp">
+      <Filter>olcTemplate\game\src\state</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\tools\daytime.hpp">
+      <Filter>olcTemplate\game\src\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\tools\dialog.hpp">
+      <Filter>olcTemplate\game\src\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\tools\fader.hpp">
+      <Filter>olcTemplate\game\src\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\tools\pathfinding.hpp">
+      <Filter>olcTemplate\game\src\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\src\tools\pathfollower.hpp">
+      <Filter>olcTemplate\game\src\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\json-nlohmann-3.11.3\json.hpp">
+      <Filter>olcTemplate\sdk\json-nlohmann-3.11.3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\json-nlohmann-3.11.3\json_fwd.hpp">
+      <Filter>olcTemplate\sdk\json-nlohmann-3.11.3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\lua-5.4.2\include\lua.hpp">
+      <Filter>olcTemplate\sdk\lua-5.4.2\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\sol2-3.3.0\sol.hpp">
+      <Filter>olcTemplate\sdk\sol2-3.3.0</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\sdk\sol2-3.3.0\sol\config.hpp">
+      <Filter>olcTemplate\sdk\sol2-3.3.0\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game\starter.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\olcTemplate\sdk\lz4-1.10.0\lz4.c">
+      <Filter>olcTemplate\sdk\lz4-1.10.0</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\animation.cpp">
+      <Filter>olcTemplate\game\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\assets.cpp">
+      <Filter>olcTemplate\game\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\coordinates.cpp">
+      <Filter>olcTemplate\game\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\fonts.cpp">
+      <Filter>olcTemplate\game\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\game.cpp">
+      <Filter>olcTemplate\game\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\gui.cpp">
+      <Filter>olcTemplate\game\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\loadsave.cpp">
+      <Filter>olcTemplate\game\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\main.cpp">
+      <Filter>olcTemplate\game\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\olcTemplate.cpp">
+      <Filter>olcTemplate\game\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\palette.cpp">
+      <Filter>olcTemplate\game\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\physicalWorld.cpp">
+      <Filter>olcTemplate\game\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\room3d.cpp">
+      <Filter>olcTemplate\game\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\sound.cpp">
+      <Filter>olcTemplate\game\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\textbox.cpp">
+      <Filter>olcTemplate\game\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\engine\src\olcPixelGameEngine.cpp">
+      <Filter>olcTemplate\game\src\engine\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\render\helper\src\olcHelper.cpp">
+      <Filter>olcTemplate\game\src\render\helper\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\render\src\introRender.cpp">
+      <Filter>olcTemplate\game\src\render\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\render\src\levelRender.cpp">
+      <Filter>olcTemplate\game\src\render\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\render\src\loadingRender.cpp">
+      <Filter>olcTemplate\game\src\render\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\render\src\logoRender.cpp">
+      <Filter>olcTemplate\game\src\render\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\render\src\mainMenuRender.cpp">
+      <Filter>olcTemplate\game\src\render\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\render\src\renderCutscene.cpp">
+      <Filter>olcTemplate\game\src\render\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\state\src\cutscene.cpp">
+      <Filter>olcTemplate\game\src\state\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\state\src\introState.cpp">
+      <Filter>olcTemplate\game\src\state\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\state\src\levelState.cpp">
+      <Filter>olcTemplate\game\src\state\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\state\src\loading.cpp">
+      <Filter>olcTemplate\game\src\state\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\state\src\logoState.cpp">
+      <Filter>olcTemplate\game\src\state\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\state\src\mainMenuState.cpp">
+      <Filter>olcTemplate\game\src\state\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\tools\src\daytime.cpp">
+      <Filter>olcTemplate\game\src\tools\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\tools\src\dialog.cpp">
+      <Filter>olcTemplate\game\src\tools\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\tools\src\fader.cpp">
+      <Filter>olcTemplate\game\src\tools\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\tools\src\pathfinding.cpp">
+      <Filter>olcTemplate\game\src\tools\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\tools\src\pathfollower.cpp">
+      <Filter>olcTemplate\game\src\tools\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\sdk\imgui-1.90.4\imgui.cpp">
+      <Filter>olcTemplate\sdk\imgui-1.90.4</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\sdk\imgui-1.90.4\imgui_demo.cpp">
+      <Filter>olcTemplate\sdk\imgui-1.90.4</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\sdk\imgui-1.90.4\imgui_draw.cpp">
+      <Filter>olcTemplate\sdk\imgui-1.90.4</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\sdk\imgui-1.90.4\imgui_tables.cpp">
+      <Filter>olcTemplate\sdk\imgui-1.90.4</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\sdk\imgui-1.90.4\imgui_widgets.cpp">
+      <Filter>olcTemplate\sdk\imgui-1.90.4</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\sdk\imgui-1.90.4\backends\imgui_impl_opengl2.cpp">
+      <Filter>olcTemplate\sdk\imgui-1.90.4\backends</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\sdk\imgui-1.90.4\backends\imgui_impl_opengl3.cpp">
+      <Filter>olcTemplate\sdk\imgui-1.90.4\backends</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game\src\starter.cpp">
+      <Filter>game\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\olcTemplate\assets\png\back-button.png">
+      <Filter>olcTemplate\assets\png</Filter>
+    </Image>
+    <Image Include="..\olcTemplate\assets\png\pge2_logo.png">
+      <Filter>olcTemplate\assets\png</Filter>
+    </Image>
+    <Image Include="..\olcTemplate\assets\sheets\Sing_With_Me_3.png">
+      <Filter>olcTemplate\assets\sheets</Filter>
+    </Image>
+    <Image Include="..\olcTemplate\assets\sheets\pretty_pretty_bg_25pc.png">
+      <Filter>olcTemplate\assets\sheets</Filter>
+    </Image>
+    <Image Include="..\olcTemplate\assets\sheets\pretty_pretty_ch_25pc.png">
+      <Filter>olcTemplate\assets\sheets</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
