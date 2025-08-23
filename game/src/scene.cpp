@@ -1,9 +1,10 @@
 #include <game/sceneRender.hpp>
 #include <game/scene.hpp>
+#include <olcTemplate/game/loadsave.hpp>
 
 using namespace stemaj;
 
-Scene::Scene() : _render(std::make_unique<SceneRender>())
+Scene::Scene(const Scenery scenery) : _render(std::make_unique<SceneRender>()), _scenery(scenery)
 {
   LoadLevelData();
 }
@@ -26,6 +27,7 @@ Render* Scene::GetRender()
 
 void Scene::LoadLevelData()
 {
+  LS.Init("scripts/scenes.lua", false);
 }
 
 void Scene::SaveLevelData()
