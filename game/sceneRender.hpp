@@ -8,8 +8,12 @@ namespace stemaj {
 class SceneRender : public LevelRender
 {
 public:
-  explicit SceneRender() {}
+  explicit SceneRender();
   void DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State* state) override;
+
+private:
+	std::unique_ptr<olc::Renderable> _rMountain;
+  std::unique_ptr<olc::Renderable> _rThing;
 };
 
 } // namespace stemaj

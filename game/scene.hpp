@@ -2,6 +2,7 @@
 #define __SCENESTATE_HPP
 
 #include <olcTemplate/game/src/state/levelState.hpp>
+#include <olcTemplate/game/physicalWorld.hpp>
 
 namespace stemaj {
 
@@ -11,20 +12,25 @@ class Scene : public LevelState
 {
 public:
 
-  enum class Scenery
-  {
-    EASY = 1,
-    MEDIUM = 2,
-    HARD = 3
-  };
-
-  explicit Scene(const Scenery scenery);
+  explicit Scene(const std::string& scenery);
   virtual ~Scene();
+
+  std::vector<PT<float>> GetPolygon(const int id) { 
+    auto ret = _world.GetPolygons()[id];
+    return ret.empty() ? std::vector<PT<float>>{} : ret;
+  }
+  
   std::optional<std::unique_ptr<State>> Update(const Input& input, float fElapsedTime) override;
   Render* GetRender() override;
 
 private:
-  Scenery _scenery = Scenery::EASY;
+  std::unordered_map<int, std::vector<PT<float>>> _mountainCoords;
+
+  PT<float> _worldUpperLeft;
+  PT<float> _worldSize;
+  PhysicalWorld::Userdata _userData = {};
+  PhysicalWorld _world;
+  std::string _scenery = "";
 
   void LoadLevelData() override;
   void SaveLevelData() override;
