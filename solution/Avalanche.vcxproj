@@ -539,6 +539,8 @@
     <ClInclude Include="..\olcTemplate\sdk\sol2-3.3.0\sol.hpp" />
     <ClInclude Include="..\olcTemplate\sdk\sol2-3.3.0\sol\config.hpp" />
     <ClInclude Include="..\game\starter.hpp" />
+    <ClInclude Include="..\game\scene.hpp" />
+    <ClInclude Include="..\game\sceneRender.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\olcTemplate\sdk\lz4-1.10.0\lz4.c">
@@ -624,6 +626,10 @@
     <ClCompile Include="..\olcTemplate\sdk\imgui-1.90.4\backends\imgui_impl_opengl3.cpp">
     </ClCompile>
     <ClCompile Include="..\game\src\starter.cpp">
+    </ClCompile>
+    <ClCompile Include="..\game\src\scene.cpp">
+    </ClCompile>
+    <ClCompile Include="..\game\src\sceneRender.cpp">
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

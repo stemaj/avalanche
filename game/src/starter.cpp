@@ -1,8 +1,7 @@
-#include <olcTemplate/game/src/render/levelRender.hpp>
-#include <olcTemplate/game/src/state/levelState.hpp>
+#include <game/sceneRender.hpp>
+#include <game/scene.hpp>
 #include <game/starter.hpp>
 #include <olcTemplate/game/src/state/mainMenuState.hpp>
-#include <olcTemplate/game/src/state/cutscene.hpp>
 #include <olcTemplate/game/sound.hpp>
 
 using namespace stemaj;
@@ -12,7 +11,7 @@ std::optional<std::unique_ptr<State>> Starter::SwitchState(const ButtonAction& a
 	switch (action) {
 		case START_GAME:
 			SO.StopMusic();
-			return std::make_unique<LevelState>();
+			return std::make_unique<Scene>();
 		case BACK:
 			SO.StopMusic();
 			return std::make_unique<MainMenuState>();

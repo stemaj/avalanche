@@ -783,6 +783,12 @@
     <ClInclude Include="..\game\starter.hpp">
       <Filter>game</Filter>
     </ClInclude>
+    <ClInclude Include="..\game\scene.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game\sceneRender.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\olcTemplate\sdk\lz4-1.10.0\lz4.c">
@@ -909,6 +915,12 @@
       <Filter>olcTemplate\sdk\imgui-1.90.4\backends</Filter>
     </ClCompile>
     <ClCompile Include="..\game\src\starter.cpp">
+      <Filter>game\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game\src\scene.cpp">
+      <Filter>game\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game\src\sceneRender.cpp">
       <Filter>game\src</Filter>
     </ClCompile>
   </ItemGroup>
