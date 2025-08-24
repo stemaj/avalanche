@@ -6,10 +6,12 @@
 
 using namespace stemaj;
 
-SceneRender::SceneRender() : _rMountain(std::make_unique<olc::Renderable>()), _rThing(std::make_unique<olc::Renderable>())
+SceneRender::SceneRender() : _rMountain(std::make_unique<olc::Renderable>()), _rStones(std::make_unique<olc::Renderable>()),
+	_rWall(std::make_unique<olc::Renderable>())
 {
   OlcHelper::CreateOneColorDecal(_rMountain.get(), olc::CYAN);
-  OlcHelper::CreateOneColorDecal(_rThing.get(), olc::RED);
+  OlcHelper::CreateOneColorDecal(_rStones.get(), olc::DARK_GREY);
+	OlcHelper::CreateOneColorDecal(_rWall.get(), olc::RED);
 }
 
 void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State* state)
@@ -19,7 +21,8 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
   pge->Clear(olc::DARK_BLUE);
 
   auto decalById = [&](int id){
-		if (id < 1000) return _rThing.get()->Decal();
+		if (id > 1000 && id < 2000) return _rStones.get()->Decal();
+		else if (id > 2000) return _rWall.get()->Decal();
     return _rMountain.get()->Decal();
 	};
 
@@ -49,4 +52,16 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
     }
     pge->DrawWarpedDecal(decalById(i), arr);
   }
+
+	for (int i = 2001; i < S->NextWallSpawnId; i++)
+	{
+		vPts = S->GetPolygon(i);
+		{
+			arr[0].x = vPts[0].x; arr[0].y = vPts[0].y;
+			arr[1].x = vPts[1].x; arr[1].y = vPts[1].y;
+			arr[2].x = vPts[2].x; arr[2].y = vPts[2].y;
+			arr[3].x = vPts[2].x+0.01f; arr[3].y = vPts[2].y-0.01f;
+		}
+		pge->DrawWarpedDecal(decalById(i), arr);
+	}
 }

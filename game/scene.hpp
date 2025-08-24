@@ -18,6 +18,7 @@ public:
 
   PT<int> MountainIds;
   int NextSpawnId = 1;
+	int NextWallSpawnId = 2001;
 
   std::vector<PT<float>> GetPolygon(const int id) { 
     auto ret = _world.GetPolygons()[id];
@@ -28,7 +29,7 @@ public:
   Render* GetRender() override;
 
 private:
-  float time = 0.0f;
+  float _time = 0.0f;
   std::unordered_map<int, std::vector<PT<float>>> _mountainCoords;
 
   PT<float> _worldUpperLeft;
