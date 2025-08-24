@@ -1,3 +1,5 @@
+#include <algorithm>
+#include <cmath>
 #include <game/sceneRender.hpp>
 #include <game/scene.hpp>
 #include <olcTemplate/game/loadsave.hpp>
@@ -29,10 +31,41 @@ Scene::~Scene()
 std::optional<std::unique_ptr<State>> Scene::Update(
   const Input& input, float fElapsedTime)
 {
-	std::random_device rd;
+  if (_spawnNewHeli)
+  {
+    Helicopter heli;
+    heli.Pos = {0.0f,50.0f};
+    Helis.push_back(heli);
+    _spawnNewHeli = false;
+  }
+  for (auto& h : Helis)
+  {
+    h.Pos.x += 150.0f * fElapsedTime;
+
+    auto getOff = [](Helicopter& h, float fElapsedTime){
+      h.Pos.x += 50.0f * fElapsedTime;
+      h.Pos.y -= 100.0f * fElapsedTime;
+      h.Scale.x -= 0.005f;
+      h.Scale.y -= 0.005f;
+    };
+
+    if (h.payLoad == false)
+    {
+      getOff(h, fElapsedTime);
+    }
+
+    if (h.Pos.x > 400.0f && h.payLoad == true)
+    {
+      h.payLoad = false;
+      getOff(h, fElapsedTime);
+      _spawnNewHeli = true;
+    }
+  }
+
+  std::random_device rd;
 	std::mt19937 gen(rd());
-  _time += fElapsedTime;
-  if (_time*2.0f > (float)NextSpawnId)
+  Time += fElapsedTime;
+  if (Time*2.0f > (float)NextSpawnId)
   {
     std::uniform_real_distribution<float> dist_neg{
       _stones_dist_neg.x,_stones_dist_neg.y};
@@ -53,11 +86,24 @@ std::optional<std::unique_ptr<State>> Scene::Update(
 	
 	if (input.leftMouseClicked)
 	{
-		_world.SpawnPolygon(NextWallSpawnId, { input.mouseX, input.mouseY },
-      _wall_local_coord, _wall_angle, 2,  1.0,
-      _wall_rest, _wall_fric, 0.0, 0.0, nullptr);
-		NextWallSpawnId++;
+    auto it = std::find_if(Helis.begin(), Helis.end(),
+      [](Helicopter& h){return h.payLoad == true;});
+    if (it != Helis.end())
+    {
+      _world.SpawnPolygon(NextWallSpawnId, { it->Pos.x, it->Pos.y + 100.0f },
+        _wall_local_coord, _wall_angle, 2,  1.0,
+        _wall_rest, _wall_fric, 0.0, 0.0, nullptr);
+      NextWallSpawnId++;
+      it->payLoad = false;
+      _spawnNewHeli = true;
+    }
 	}
+
+  if (input.rightMouseClicked)
+  {
+    _world.SetBoostXY(3001, 150.0f, 200.0f);
+    _world.SetBoostXY(3002, -150.0f, 125.0f);
+  }
 
   _world.Step(fElapsedTime);
 

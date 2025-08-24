@@ -23,12 +23,23 @@ public:
     auto ret = _world.GetPolygons()[id];
     return ret.empty() ? std::vector<PT<float>>{} : ret;
   }
-  
+
+  struct Helicopter
+  {
+    PT<float> Pos = {};
+    bool payLoad = true;
+    PT<float> Scale = {0.25f, 0.25f};
+  };
+  std::vector<Helicopter> Helis = {};
+
+  float Time = -3.0f;
+
   std::optional<std::unique_ptr<State>> Update(const Input& input, float fElapsedTime) override;
   Render* GetRender() override;
 
 private:
-  float _time = 0.0f;
+
+  float _spawnNewHeli = true;
 
   float _wall_angle = 0.0f;
   float _wall_rest = 0.0f;

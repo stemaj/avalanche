@@ -9,7 +9,7 @@ easy_stone_rest = 0.5
 easy_stone_fric = 0.3
 
 easy_wall_angle = 1.27
-easy_wall_rest = 0.2
+easy_wall_rest = 0.05
 easy_wall_fric = 0.3
 
 wall_siz = 30.0
