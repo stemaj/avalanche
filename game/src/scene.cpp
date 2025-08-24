@@ -2,12 +2,23 @@
 #include <game/scene.hpp>
 #include <olcTemplate/game/loadsave.hpp>
 #include <vector>
+#include <random>
 
 using namespace stemaj;
 
 Scene::Scene(const std::string& scenery) : _scenery(scenery), _render(std::make_unique<SceneRender>())
 {
   LoadLevelData();
+
+  // Hausdach
+  auto cp = _world.GetCenterPoint(3001);
+  std::vector<PT<float>> roofPts = {
+    { 0.0f, -_roof_height }, 
+    {-_roof_height/2.f, _roof_height/2.f}, 
+    {_roof_height/2.f, _roof_height/2.f} };
+  _world.SpawnPolygon(3002, 
+    {cp.x, cp.y - _roof_height}, roofPts,
+    0.0f, 2, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, nullptr);
 }
 
 Scene::~Scene()
@@ -23,8 +34,10 @@ std::optional<std::unique_ptr<State>> Scene::Update(
   _time += fElapsedTime;
   if (_time*2.0f > (float)NextSpawnId)
   {
-    std::uniform_real_distribution<float> dist_neg{-20.0f, -5.0f};
-    std::uniform_real_distribution<float> dist_pos{5.0f, 20.0f};
+    std::uniform_real_distribution<float> dist_neg{
+      _stones_dist_neg.x,_stones_dist_neg.y};
+    std::uniform_real_distribution<float> dist_pos{
+      _stones_dist_pos.x,_stones_dist_pos.y};
 
     std::cout << "Spawne " << NextSpawnId << std::endl;
     std::vector<PT<float>> localPts;
@@ -32,23 +45,19 @@ std::optional<std::unique_ptr<State>> Scene::Update(
     localPts.push_back({dist_neg(gen), dist_pos(gen)});
     localPts.push_back({dist_pos(gen), dist_pos(gen)});
     localPts.push_back({dist_pos(gen), dist_neg(gen)});
-    _world.SpawnPolygon(NextSpawnId, { 850.0, -100.0 }, localPts, 1.27f,
-      2,  1.0, 0.2, 0.2, 0.0, 0.0, nullptr);
+    _world.SpawnPolygon(NextSpawnId, _stone_spawn, localPts,
+      _stone_angle, 2,  1.0, _stone_rest, _stone_fric,
+      0.0, 0.0, nullptr);
     NextSpawnId++;
   }
 	
 	if (input.leftMouseClicked)
 	{
-		std::vector<PT<float>> localPts;
-		localPts.push_back({0.f,-30.f});
-		localPts.push_back({-20.0f, -10.0f});
-		localPts.push_back({+20.0f, 10.0f});
-		_world.SpawnPolygon(NextWallSpawnId, { input.mouseX, input.mouseY }, localPts, 0.f,
-			2,  1.0, 0.05, 0.8, 0.3, 0.8, nullptr);
+		_world.SpawnPolygon(NextWallSpawnId, { input.mouseX, input.mouseY },
+      _wall_local_coord, _wall_angle, 2,  1.0,
+      _wall_rest, _wall_fric, 0.0, 0.0, nullptr);
 		NextWallSpawnId++;
 	}
-	
-	
 
   _world.Step(fElapsedTime);
 
@@ -66,7 +75,20 @@ void Scene::LoadLevelData()
 
   LS.Init("scripts/scenes.lua", false);
   
-  MountainIds = LS.PTInt(_scenery + "_mountainIds");
+  MountainIds = { 1001, LS.Int(_scenery + "_mountainIds") };
+  _stones_dist_neg = LS.PTFloat("stones_dist_neg");
+  _stones_dist_pos = LS.PTFloat("stones_dist_pos");
+  _stone_spawn = LS.PTFloat(_scenery + "_stone_spawn");
+  _stone_fric = LS.Float(_scenery + "_stone_fric");
+  _stone_angle = LS.Float(_scenery + "_stone_angle");
+  _stone_rest = LS.Float(_scenery + "_stone_rest");
+
+  _roof_height = LS.Float(_scenery + "_roof_height");
+
+  _wall_rest = LS.Float(_scenery + "_stone_rest");
+  _wall_fric = LS.Float(_scenery + "_stone_fric");
+  _wall_angle = LS.Float(_scenery + "_stone_angle");
+  _wall_local_coord = LS.VPTFloat(_scenery + "_wall_local_coord");
 }
 
 void Scene::SaveLevelData()

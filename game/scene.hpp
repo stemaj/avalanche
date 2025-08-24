@@ -3,7 +3,6 @@
 
 #include <olcTemplate/game/src/state/levelState.hpp>
 #include <olcTemplate/game/physicalWorld.hpp>
-#include <random>
 
 namespace stemaj {
 
@@ -30,6 +29,20 @@ public:
 
 private:
   float _time = 0.0f;
+
+  float _wall_angle = 0.0f;
+  float _wall_rest = 0.0f;
+  float _wall_fric = 0.0f;
+  std::vector<PT<float>> _wall_local_coord = {};
+
+  float _roof_height = 0.0f;
+  
+  float _stone_fric = 0.0f;
+  float _stone_angle = 0.0f;
+  float _stone_rest = 0.0f;
+  PT<float> _stone_spawn = {};
+  PT<float> _stones_dist_neg = {};
+  PT<float> _stones_dist_pos = {};
   std::unordered_map<int, std::vector<PT<float>>> _mountainCoords;
 
   PT<float> _worldUpperLeft;

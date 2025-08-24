@@ -15,6 +15,7 @@ private:
 	std::unique_ptr<olc::Renderable> _rMountain;
   std::unique_ptr<olc::Renderable> _rStones;
 	std::unique_ptr<olc::Renderable> _rWall;
+  std::unique_ptr<olc::Renderable> _rHouse;
 };
 
 } // namespace stemaj
