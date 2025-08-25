@@ -18,9 +18,15 @@ Scene::Scene(const std::string& scenery) : _scenery(scenery), _render(std::make_
     { 0.0f, -_roof_height }, 
     {-_roof_height/2.f, _roof_height/2.f}, 
     {_roof_height/2.f, _roof_height/2.f} };
+  _userdata.push_back(3002);
   _world.SpawnPolygon(3002, 
     {cp.x, cp.y - _roof_height}, roofPts,
-    0.0f, 2, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, nullptr);
+    0.0f, 2, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, &_userdata.back());
+
+  _cl_house = std::make_shared<PhysicalWorld::ContactChecker>(3001);
+  _world.SetListener(_cl_house.get());
+  // _cl_roof = std::make_shared<PhysicalWorld::ContactChecker>(3002);
+  // _world.SetListener(_cl_roof.get());
 }
 
 Scene::~Scene()
@@ -78,9 +84,10 @@ std::optional<std::unique_ptr<State>> Scene::Update(
     localPts.push_back({dist_neg(gen), dist_pos(gen)});
     localPts.push_back({dist_pos(gen), dist_pos(gen)});
     localPts.push_back({dist_pos(gen), dist_neg(gen)});
+    _userdata.push_back(NextSpawnId);
     _world.SpawnPolygon(NextSpawnId, _stone_spawn, localPts,
       _stone_angle, 2,  1.0, _stone_rest, _stone_fric,
-      0.0, 0.0, nullptr);
+      0.0, 0.0, &_userdata.back());
     NextSpawnId++;
   }
 	
@@ -90,19 +97,25 @@ std::optional<std::unique_ptr<State>> Scene::Update(
       [](Helicopter& h){return h.payLoad == true;});
     if (it != Helis.end())
     {
+      _userdata.push_back(NextWallSpawnId);
       _world.SpawnPolygon(NextWallSpawnId, { it->Pos.x, it->Pos.y + 100.0f },
         _wall_local_coord, _wall_angle, 2,  1.0,
-        _wall_rest, _wall_fric, 0.0, 0.0, nullptr);
+        _wall_rest, _wall_fric, 0.0, 0.0, &_userdata.back());
       NextWallSpawnId++;
       it->payLoad = false;
       _spawnNewHeli = true;
     }
 	}
 
-  if (input.rightMouseClicked)
+  if (_cl_house->IsInContactWithId(1000, 0))
   {
-    _world.SetBoostXY(3001, 150.0f, 200.0f);
-    _world.SetBoostXY(3002, -150.0f, 125.0f);
+    _world.SetBoostXY(3001, 100.0f, 150.0f);
+    _world.SetBoostXY(3002, -125.0f, 75.0f);
+  }
+  if (_cl_house->IsInContactWithId(3000, 2000))
+  {
+    _world.SetBoostXY(3001, -50.0f, 10.0f);
+    _world.SetBoostXY(3002, -60.0f, 10.0f);
   }
 
   _world.Step(fElapsedTime);
@@ -117,7 +130,7 @@ Render* Scene::GetRender()
 
 void Scene::LoadLevelData()
 {
-  _world.LoadFromScript("world", _scenery, &_userData);
+  _world.LoadFromScript("world", _scenery, _userdata);
 
   LS.Init("scripts/scenes.lua", false);
   

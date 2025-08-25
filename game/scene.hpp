@@ -58,7 +58,9 @@ private:
 
   PT<float> _worldUpperLeft;
   PT<float> _worldSize;
-  PhysicalWorld::Userdata _userData = {};
+  std::shared_ptr<PhysicalWorld::ContactChecker> _cl_house;
+  //std::shared_ptr<PhysicalWorld::ContactChecker> _cl_roof;
+  std::list<int> _userdata = {};
   PhysicalWorld _world;
   std::string _scenery = "";
 
