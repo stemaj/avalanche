@@ -1,7 +1,9 @@
-easy_mountainIds = 1008
-
 stones_dist_neg = { -20.0, -5.0 }
 stones_dist_pos = { 5.0, 20.0 }
+
+easy_winning_time = 20.0
+
+easy_mountainIds = 1008
 
 easy_stone_spawn = { 850.0, -100.0 }
 easy_stone_angle = 1.27
