@@ -147,7 +147,7 @@ std::optional<std::unique_ptr<State>> Scene::Update(
     stopAllEffects();
 	  stopMusic();
     _fader.StartFadeOut();
-    _levelEndTime = MAXFLOAT;
+    _levelEndTime = FLT_MAX;
   }
   if (_fader.IsFading())
   {

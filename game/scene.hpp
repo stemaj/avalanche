@@ -36,14 +36,14 @@ public:
   float Winning_time = 0.0f;
   std::string StatusText1 = "";
   std::string StatusText2 = "";
-  float StatusTextTime = MAXFLOAT;
+  float StatusTextTime = FLT_MAX;
 
   std::optional<std::unique_ptr<State>> Update(const Input& input, float fElapsedTime) override;
   Render* GetRender() override;
 
 private:
 
-  float _levelEndTime = MAXFLOAT;
+  float _levelEndTime = FLT_MAX;
 
   float _spawnNewHeli = true;
 
