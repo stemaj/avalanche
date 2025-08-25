@@ -117,4 +117,19 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
 		}
 		pge->DrawWarpedDecal(decalById(i), arr);
 	}
+
+  if (S->StatusTextTime < S->Time)
+  {
+    font = FT.Font("Alkia", FontSize::BIG);
+    dec = font->RenderStringToDecal(
+      utf8::utf8to32(S->StatusText1), olc::WHITE);
+    pge->DrawDecal({(float)CO.W/2.0f-dec->sprite->width/2.0f,
+      (float)CO.H/2.0f-dec->sprite->height- 25.0f}, dec);
+
+    font = FT.Font("Alkia", FontSize::NORMAL);
+    dec = font->RenderStringToDecal(
+      utf8::utf8to32(S->StatusText2), olc::WHITE);
+    pge->DrawDecal({(float)CO.W/2.0f-dec->sprite->width/2.0f,
+      (float)CO.H/2.0f+ 25.0f}, dec);
+  }
 }

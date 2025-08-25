@@ -3,6 +3,7 @@
 #include <game/sceneRender.hpp>
 #include <game/scene.hpp>
 #include <olcTemplate/game/loadsave.hpp>
+#include <olcTemplate/game/src/state/mainMenuState.hpp>
 #include <vector>
 #include <random>
 
@@ -10,6 +11,7 @@ using namespace stemaj;
 
 Scene::Scene(const std::string& scenery) : _scenery(scenery), _render(std::make_unique<SceneRender>())
 {
+  _fader = Fader(5.0f);
   LoadLevelData();
 
   // Hausdach
@@ -64,14 +66,17 @@ std::optional<std::unique_ptr<State>> Scene::Update(
     {
       h.payLoad = false;
       getOff(h, fElapsedTime);
-      _spawnNewHeli = true;
+      if (Time < _winning_time)
+      {
+        _spawnNewHeli = true;
+      }      
     }
   }
 
   std::random_device rd;
 	std::mt19937 gen(rd());
   Time += fElapsedTime;
-  if (Time*2.0f > (float)NextSpawnId)
+  if (Time*2.0f > (float)NextSpawnId && Time < _winning_time)
   {
     std::uniform_real_distribution<float> dist_neg{
       _stones_dist_neg.x,_stones_dist_neg.y};
@@ -107,18 +112,52 @@ std::optional<std::unique_ptr<State>> Scene::Update(
     }
 	}
 
-  if (_cl_house->IsInContactWithId(1000, 0))
+  if (StatusText1.empty())
   {
-    _world.SetBoostXY(3001, 100.0f, 150.0f);
-    _world.SetBoostXY(3002, -125.0f, 75.0f);
-  }
-  if (_cl_house->IsInContactWithId(3000, 2000))
-  {
-    _world.SetBoostXY(3001, -50.0f, 10.0f);
-    _world.SetBoostXY(3002, -60.0f, 10.0f);
+    if (_cl_house->IsInContactWithId(1000, 0))
+    {
+      _world.SetBoostXY(3001, 100.0f, 150.0f);
+      _world.SetBoostXY(3002, -125.0f, 75.0f);
+      _levelEndTime = Time + 5.0f;
+      StatusText1 = "YOU FAILED !!!";
+      StatusText2 = "YOUR HOME IS LOST.";
+      StatusTextTime = Time + 2.0f;
+    }
+    if (_cl_house->IsInContactWithId(3000, 2000))
+    {
+      _world.SetBoostXY(3001, -50.0f, 10.0f);
+      _world.SetBoostXY(3002, -60.0f, 10.0f);
+      _levelEndTime = Time + 5.0f;
+      StatusText1 = "YOU FOOL !!!";
+      StatusText2 = "THIS WAS A VERY BAD IDEA.";
+      StatusTextTime = Time + 2.0f;
+    }
+    if (Time > (_winning_time+2.0f))
+    {
+      _levelEndTime = Time + 5.0f;
+      StatusText1 = "CONGRATULATIONS !!!";
+      StatusText2 = "SILENCE IS BACK.";
+      StatusTextTime = Time + 2.0f;
+    }
   }
 
   _world.Step(fElapsedTime);
+
+  if (Time > _levelEndTime)
+  {
+    stopAllEffects();
+	  stopMusic();
+    _fader.StartFadeOut();
+    _levelEndTime = MAXFLOAT;
+  }
+  if (_fader.IsFading())
+  {
+    _fader.Update(fElapsedTime);
+    if (_fader.IsTurning())
+    {
+      return std::make_unique<MainMenuState>();
+    }
+  }
 
   return RequestForMainMenu(input.escapePressed, fElapsedTime);
 }
@@ -148,6 +187,8 @@ void Scene::LoadLevelData()
   _wall_fric = LS.Float(_scenery + "_stone_fric");
   _wall_angle = LS.Float(_scenery + "_stone_angle");
   _wall_local_coord = LS.VPTFloat(_scenery + "_wall_local_coord");
+
+  _winning_time = LS.Float(_scenery + "_winning_time");
 }
 
 void Scene::SaveLevelData()
