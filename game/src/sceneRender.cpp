@@ -28,10 +28,10 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
   auto S = static_cast<Scene*>(state);
 
   pge->Clear(olc::DARK_BLUE);
-  auto font = FT.Font("dogica", FontSize::SMALLER);
+  auto font = FT.Font("Alkia", FontSize::SMALLER);
   auto dec = font->RenderStringToDecal(
       utf8::utf8to32(std::to_string(S->Time)), olc::WHITE);
-  pge->DrawDecal({(float)CO.W-dec->sprite->width - 10.0f,
+  pge->DrawDecal({(float)CO.W-100.0f,
     (float)CO.H-dec->sprite->height - 10.0f}, dec);
 
   auto decalById = [&](int id){

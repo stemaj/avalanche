@@ -14,11 +14,11 @@ button_normal_color = 1
 button_hover_color = 2
 button_click_color = 3
 
-font = "dogica"
+font = "Alkia"
 
 --        Text,											 Pos,       Size, Color
 texts = {
-  {"Avalanche ",									{0.15, 0.4},  3, 0},
+  {"AVALANCHE ",									{0.01, 0.4},  5, 0},
 }
 
 --   File,         Pos,      Scale
