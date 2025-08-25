@@ -118,8 +118,17 @@
     <Filter Include="olcTemplate\assets\png">
       <UniqueIdentifier>{2F49CFFD-1B43-F84F-04B0-8E60F0485EBC}</UniqueIdentifier>
     </Filter>
+    <Filter Include="assets">
+      <UniqueIdentifier>{583885F2-44DA-AFC8-2D95-C31C19D63619}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\png">
+      <UniqueIdentifier>{3902CEA8-25BA-0FF6-8EC1-E8517A98AAE6}</UniqueIdentifier>
+    </Filter>
     <Filter Include="olcTemplate\assets\fonts">
       <UniqueIdentifier>{741512AE-603A-612E-8985-46BE7509604C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\fonts">
+      <UniqueIdentifier>{FE38A313-EA9B-32B8-9321-6B6E7F63FE3A}</UniqueIdentifier>
     </Filter>
     <Filter Include="olcTemplate\assets\wav">
       <UniqueIdentifier>{5865CFFD-445F-F84F-2DCC-8E6019655EBC}</UniqueIdentifier>
@@ -142,8 +151,20 @@
     <None Include="..\scripts\mainMenu.lua">
       <Filter>scripts</Filter>
     </None>
+    <None Include="..\scripts\scenes.lua">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="..\scripts\world.lua">
+      <Filter>scripts</Filter>
+    </None>
+    <None Include="..\scripts\intro.lua">
+      <Filter>scripts</Filter>
+    </None>
     <None Include="..\olcTemplate\assets\fonts\dogica.ttf">
       <Filter>olcTemplate\assets\fonts</Filter>
+    </None>
+    <None Include="..\assets\fonts\Alkia.ttf">
+      <Filter>assets\fonts</Filter>
     </None>
     <None Include="..\olcTemplate\assets\wav\breaking-news-177297.mp3">
       <Filter>olcTemplate\assets\wav</Filter>
@@ -931,6 +952,12 @@
     <Image Include="..\olcTemplate\assets\png\pge2_logo.png">
       <Filter>olcTemplate\assets\png</Filter>
     </Image>
+    <Image Include="..\olcTemplate\assets\png\soloud.png">
+      <Filter>olcTemplate\assets\png</Filter>
+    </Image>
+    <Image Include="..\olcTemplate\assets\png\box2d.png">
+      <Filter>olcTemplate\assets\png</Filter>
+    </Image>
     <Image Include="..\olcTemplate\assets\sheets\Sing_With_Me_3.png">
       <Filter>olcTemplate\assets\sheets</Filter>
     </Image>
@@ -939,6 +966,9 @@
     </Image>
     <Image Include="..\olcTemplate\assets\sheets\pretty_pretty_ch_25pc.png">
       <Filter>olcTemplate\assets\sheets</Filter>
+    </Image>
+    <Image Include="..\assets\png\helicopter.png">
+      <Filter>assets\png</Filter>
     </Image>
   </ItemGroup>
 </Project>

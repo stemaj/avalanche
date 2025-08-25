@@ -33,6 +33,7 @@ public:
   std::vector<Helicopter> Helis = {};
 
   float Time = -3.0f;
+  float Winning_time = 0.0f;
   std::string StatusText1 = "";
   std::string StatusText2 = "";
   float StatusTextTime = MAXFLOAT;
@@ -43,7 +44,6 @@ public:
 private:
 
   float _levelEndTime = MAXFLOAT;
-  float _winning_time = 0.0f;
 
   float _spawnNewHeli = true;
 

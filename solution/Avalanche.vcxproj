@@ -639,7 +639,11 @@
     <None Include="..\olcTemplate\assets\sheets\pretty_pretty_ch_25pc.lua" />
     <None Include="..\scripts\settings.lua" />
     <None Include="..\scripts\mainMenu.lua" />
+    <None Include="..\scripts\scenes.lua" />
+    <None Include="..\scripts\world.lua" />
+    <None Include="..\scripts\intro.lua" />
     <None Include="..\olcTemplate\assets\fonts\dogica.ttf" />
+    <None Include="..\assets\fonts\Alkia.ttf" />
     <None Include="..\olcTemplate\assets\wav\breaking-news-177297.mp3" />
     <None Include="..\olcTemplate\assets\wav\groovy-energy-sports-80-bpm-short-12275.mp3" />
     <None Include="..\olcTemplate\assets\wav\hard-rock-logo-108960.mp3" />
@@ -653,6 +657,14 @@
       <DeploymentContent>true</DeploymentContent>
       <Link>olcTemplate\assets\png\pge2_logo.png</Link>
     </Image>
+    <Image Include="..\olcTemplate\assets\png\soloud.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>olcTemplate\assets\png\soloud.png</Link>
+    </Image>
+    <Image Include="..\olcTemplate\assets\png\box2d.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>olcTemplate\assets\png\box2d.png</Link>
+    </Image>
     <Image Include="..\olcTemplate\assets\sheets\Sing_With_Me_3.png">
       <DeploymentContent>true</DeploymentContent>
       <Link>olcTemplate\assets\sheets\Sing_With_Me_3.png</Link>
@@ -664,6 +676,10 @@
     <Image Include="..\olcTemplate\assets\sheets\pretty_pretty_ch_25pc.png">
       <DeploymentContent>true</DeploymentContent>
       <Link>olcTemplate\assets\sheets\pretty_pretty_ch_25pc.png</Link>
+    </Image>
+    <Image Include="..\assets\png\helicopter.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>assets\png\helicopter.png</Link>
     </Image>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

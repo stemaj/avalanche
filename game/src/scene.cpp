@@ -11,7 +11,7 @@ using namespace stemaj;
 
 Scene::Scene(const std::string& scenery) : _scenery(scenery), _render(std::make_unique<SceneRender>())
 {
-  _fader = Fader(5.0f);
+  _fader = Fader(2.0f);
   LoadLevelData();
 
   // Hausdach
@@ -66,7 +66,7 @@ std::optional<std::unique_ptr<State>> Scene::Update(
     {
       h.payLoad = false;
       getOff(h, fElapsedTime);
-      if (Time < _winning_time)
+      if (Time < Winning_time)
       {
         _spawnNewHeli = true;
       }      
@@ -76,14 +76,13 @@ std::optional<std::unique_ptr<State>> Scene::Update(
   std::random_device rd;
 	std::mt19937 gen(rd());
   Time += fElapsedTime;
-  if (Time*2.0f > (float)NextSpawnId && Time < _winning_time)
+  if (Time*2.0f > (float)NextSpawnId && Time < Winning_time)
   {
     std::uniform_real_distribution<float> dist_neg{
       _stones_dist_neg.x,_stones_dist_neg.y};
     std::uniform_real_distribution<float> dist_pos{
       _stones_dist_pos.x,_stones_dist_pos.y};
 
-    std::cout << "Spawne " << NextSpawnId << std::endl;
     std::vector<PT<float>> localPts;
     localPts.push_back({dist_neg(gen), dist_neg(gen)});
     localPts.push_back({dist_neg(gen), dist_pos(gen)});
@@ -132,7 +131,7 @@ std::optional<std::unique_ptr<State>> Scene::Update(
       StatusText2 = "THIS WAS A VERY BAD IDEA.";
       StatusTextTime = Time + 2.0f;
     }
-    if (Time > (_winning_time+2.0f))
+    if (Time > (Winning_time+2.0f))
     {
       _levelEndTime = Time + 5.0f;
       StatusText1 = "CONGRATULATIONS !!!";
@@ -159,7 +158,15 @@ std::optional<std::unique_ptr<State>> Scene::Update(
     }
   }
 
-  return RequestForMainMenu(input.escapePressed, fElapsedTime);
+  bool getOutOfHere = input.escapePressed;
+//#ifdef __EMSCRIPTEN__
+  if (input.leftMouseClicked && input.mouseX < 20 && input.mouseY > (CO.H/2-20))
+  {
+    getOutOfHere = true;
+  }
+//#endif
+
+  return RequestForMainMenu(getOutOfHere, fElapsedTime);
 }
 
 Render* Scene::GetRender()
@@ -188,7 +195,7 @@ void Scene::LoadLevelData()
   _wall_angle = LS.Float(_scenery + "_stone_angle");
   _wall_local_coord = LS.VPTFloat(_scenery + "_wall_local_coord");
 
-  _winning_time = LS.Float(_scenery + "_winning_time");
+  Winning_time = LS.Float(_scenery + "_winning_time");
 }
 
 void Scene::SaveLevelData()

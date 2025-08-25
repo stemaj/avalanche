@@ -1,4 +1,5 @@
 #include "olcTemplate/game/guiElements.hpp"
+#include <algorithm>
 #include <game/sceneRender.hpp>
 #include <game/scene.hpp>
 #include <olcTemplate/game/coordinates.hpp>
@@ -28,9 +29,15 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
   auto S = static_cast<Scene*>(state);
 
   pge->Clear(olc::DARK_BLUE);
+
+//#ifdef __EMSCRIPTEN__
+  pge->FillRectDecal({0,float(CO.H-20)}, {20.f,20.f});
+//#endif
+
   auto font = FT.Font("Alkia", FontSize::SMALLER);
+  float f = std::max(S->Winning_time-S->Time, 0.0f);
   auto dec = font->RenderStringToDecal(
-      utf8::utf8to32(std::to_string(S->Time)), olc::WHITE);
+      utf8::utf8to32(std::to_string(f)), olc::WHITE);
   pge->DrawDecal({(float)CO.W-100.0f,
     (float)CO.H-dec->sprite->height - 10.0f}, dec);
 
