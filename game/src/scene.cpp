@@ -4,6 +4,7 @@
 #include <game/scene.hpp>
 #include <olcTemplate/game/loadsave.hpp>
 #include <olcTemplate/game/src/state/mainMenuState.hpp>
+#include <olcTemplate/game/sound.hpp>
 #include <vector>
 #include <random>
 
@@ -39,6 +40,12 @@ Scene::~Scene()
 std::optional<std::unique_ptr<State>> Scene::Update(
   const Input& input, float fElapsedTime)
 {
+  if (!_heliSound)
+  {
+    SO.StartEffect("assets/mp3/helicopter.mp3", 1.0f);
+    _heliSound = true;
+  }
+  
   if (_spawnNewHeli)
   {
     Helicopter heli;
@@ -89,10 +96,28 @@ std::optional<std::unique_ptr<State>> Scene::Update(
     localPts.push_back({dist_pos(gen), dist_pos(gen)});
     localPts.push_back({dist_pos(gen), dist_neg(gen)});
     _userdata.push_back(NextSpawnId);
+    if (!_stoneSound)
+    {
+      SO.StartEffect("assets/mp3/stone.mp3", 1.0f);
+      _stoneSound = true;
+    }
+    
     _world.SpawnPolygon(NextSpawnId, _stone_spawn, localPts,
       _stone_angle, 2,  1.0, _stone_rest, _stone_fric,
       0.0, 0.0, &_userdata.back());
     NextSpawnId++;
+  }
+  if (Time > Winning_time)
+  {
+    SO.StopEffect("assets/mp3/stone.mp3", 0.8f);
+    _stoneSound = false;
+    SO.StopEffect("assets/mp3/helicopter.mp3", 0.8f);
+    _heliSound = false;
+    if (!_birdSound)
+    {
+      SO.StartEffect("assets/mp3/bird.mp3", 0.6f);
+      _birdSound = true;
+    }
   }
 	
 	if (input.leftMouseClicked)
@@ -144,8 +169,6 @@ std::optional<std::unique_ptr<State>> Scene::Update(
 
   if (Time > _levelEndTime)
   {
-    stopAllEffects();
-	  stopMusic();
     _fader.StartFadeOut();
     _levelEndTime = FLT_MAX;
   }
@@ -154,6 +177,7 @@ std::optional<std::unique_ptr<State>> Scene::Update(
     _fader.Update(fElapsedTime);
     if (_fader.IsTurning())
     {
+      SO.StopAllEffects();
       return std::make_unique<MainMenuState>();
     }
   }

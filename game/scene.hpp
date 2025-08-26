@@ -46,6 +46,10 @@ public:
 
 private:
 
+  bool _heliSound = false;
+  bool _stoneSound = false;
+  bool _birdSound = false;
+
   float _levelEndTime = FLT_MAX;
 
   float _spawnNewHeli = true;
