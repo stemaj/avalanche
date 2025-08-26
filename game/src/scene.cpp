@@ -135,7 +135,7 @@ std::optional<std::unique_ptr<State>> Scene::Update(
     {
       _levelEndTime = Time + 5.0f;
       StatusText1 = "CONGRATULATIONS !!!";
-      StatusText2 = "SILENCE IS BACK.";
+      StatusText2 = "THE AVALANCHE IS DEFEATED.";
       StatusTextTime = Time + 2.0f;
     }
   }

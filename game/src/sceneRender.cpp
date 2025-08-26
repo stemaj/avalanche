@@ -32,7 +32,9 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
     OlcHelper::CreateOneColorDecal(_rMountain.get(), pix(S->Colors[0]));
     OlcHelper::CreateOneColorDecal(_rStones.get(), pix(S->Colors[1]));
     OlcHelper::CreateOneColorDecal(_rWall.get(), pix(S->Colors[1]));
-    OlcHelper::CreateOneColorDecal(_rHouse.get(), pix(S->Colors[0]));
+    auto houseCol = pix(S->Colors[0]);
+    houseCol.a = 150;
+    OlcHelper::CreateOneColorDecal(_rHouse.get(), houseCol);
 
     _rendsCreated = true;
   }
@@ -82,7 +84,7 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
   {
     pge->DrawDecal({
       heli.Pos.x - heli.Scale.x*heliSprite.x/2.0f,
-      heli.Pos.y - heli.Scale.y*heliSprite.y/2.0f},
+      heli.Pos.y - heli.Scale.y*heliSprite.y/2.0f + 50.0f},
       AS.Decal("helicopter"), {heli.Scale.x, heli.Scale.y});
   }
 

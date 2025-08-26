@@ -3,7 +3,7 @@ dofile('scripts/colors.lua')
 stones_dist_neg = { -20.0, -5.0 }
 stones_dist_pos = { 5.0, 20.0 }
 
-easy_winning_time = 200.0
+easy_winning_time = 10.0
 
 easy_mountainIds = 1008
 

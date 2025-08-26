@@ -16,7 +16,7 @@ easy_rects = {
   {1007,  { 700.0, 100.0 },  { 780.0,  30.0 },   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
   {1008,  { 780.0, 30.0 },   { 900.0, -30.0 },   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
 
-  {3001,  { 70.0,320.0 },  { 130.0, 320.0 },   house_size, 2,  1.0, house_rest, house_fric, 0.0, 0.0},
+  {3001,  { 40.0,320.0 },  { 100.0, 320.0 },   house_size, 2,  1.0, house_rest, house_fric, 0.0, 0.0},
 }
 
 box2d_scale = 0.01 --nicht aendern...
