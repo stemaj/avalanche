@@ -9,7 +9,7 @@
 
 using namespace stemaj;
 
-Scene::Scene(const std::string& scenery) : _scenery(scenery), _render(std::make_unique<SceneRender>())
+Scene::Scene(const std::string& scenery) : Scenery(scenery), _render(std::make_unique<SceneRender>())
 {
   _fader = Fader(2.0f);
   LoadLevelData();
@@ -176,26 +176,28 @@ Render* Scene::GetRender()
 
 void Scene::LoadLevelData()
 {
-  _world.LoadFromScript("world", _scenery, _userdata);
+  _world.LoadFromScript("world", Scenery, _userdata);
 
   LS.Init("scripts/scenes.lua", false);
   
-  MountainIds = { 1001, LS.Int(_scenery + "_mountainIds") };
+  MountainIds = { 1001, LS.Int(Scenery + "_mountainIds") };
   _stones_dist_neg = LS.PTFloat("stones_dist_neg");
   _stones_dist_pos = LS.PTFloat("stones_dist_pos");
-  _stone_spawn = LS.PTFloat(_scenery + "_stone_spawn");
-  _stone_fric = LS.Float(_scenery + "_stone_fric");
-  _stone_angle = LS.Float(_scenery + "_stone_angle");
-  _stone_rest = LS.Float(_scenery + "_stone_rest");
+  _stone_spawn = LS.PTFloat(Scenery + "_stone_spawn");
+  _stone_fric = LS.Float(Scenery + "_stone_fric");
+  _stone_angle = LS.Float(Scenery + "_stone_angle");
+  _stone_rest = LS.Float(Scenery + "_stone_rest");
 
-  _roof_height = LS.Float(_scenery + "_roof_height");
+  _roof_height = LS.Float(Scenery + "_roof_height");
 
-  _wall_rest = LS.Float(_scenery + "_stone_rest");
-  _wall_fric = LS.Float(_scenery + "_stone_fric");
-  _wall_angle = LS.Float(_scenery + "_stone_angle");
-  _wall_local_coord = LS.VPTFloat(_scenery + "_wall_local_coord");
+  _wall_rest = LS.Float(Scenery + "_stone_rest");
+  _wall_fric = LS.Float(Scenery + "_stone_fric");
+  _wall_angle = LS.Float(Scenery + "_stone_angle");
+  _wall_local_coord = LS.VPTFloat(Scenery + "_wall_local_coord");
 
-  Winning_time = LS.Float(_scenery + "_winning_time");
+  Winning_time = LS.Float(Scenery + "_winning_time");
+
+  Colors = LS.Colors();
 }
 
 void Scene::SaveLevelData()

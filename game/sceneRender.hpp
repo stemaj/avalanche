@@ -12,6 +12,7 @@ public:
   void DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State* state) override;
 
 private:
+  bool _rendsCreated = false;
 	std::unique_ptr<olc::Renderable> _rMountain;
   std::unique_ptr<olc::Renderable> _rStones;
 	std::unique_ptr<olc::Renderable> _rWall;

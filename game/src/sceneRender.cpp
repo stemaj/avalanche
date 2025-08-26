@@ -1,5 +1,6 @@
 #include "olcTemplate/game/guiElements.hpp"
 #include <algorithm>
+#include <cstdint>
 #include <game/sceneRender.hpp>
 #include <game/scene.hpp>
 #include <olcTemplate/game/coordinates.hpp>
@@ -16,19 +17,28 @@ using namespace stemaj;
 SceneRender::SceneRender() : _rMountain(std::make_unique<olc::Renderable>()),
   _rStones(std::make_unique<olc::Renderable>()),
 	_rWall(std::make_unique<olc::Renderable>()),
-  _rHouse(std::make_unique<olc::Renderable>())
-{
-  OlcHelper::CreateOneColorDecal(_rMountain.get(), olc::CYAN);
-  OlcHelper::CreateOneColorDecal(_rStones.get(), olc::DARK_GREY);
-	OlcHelper::CreateOneColorDecal(_rWall.get(), olc::RED);
-  OlcHelper::CreateOneColorDecal(_rHouse.get(), olc::DARK_YELLOW);
-}
+  _rHouse(std::make_unique<olc::Renderable>()) {}
 
 void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State* state)
 {
+  auto pix = [](std::array<uint8_t,4> col){
+    return olc::Pixel(col[0],col[1],col[2],col[3]);
+  };
+
   auto S = static_cast<Scene*>(state);
 
-  pge->Clear(olc::DARK_BLUE);
+  if (!_rendsCreated)
+  {
+    OlcHelper::CreateOneColorDecal(_rMountain.get(), pix(S->Colors[0]));
+    OlcHelper::CreateOneColorDecal(_rStones.get(), pix(S->Colors[1]));
+    OlcHelper::CreateOneColorDecal(_rWall.get(), pix(S->Colors[1]));
+    OlcHelper::CreateOneColorDecal(_rHouse.get(), pix(S->Colors[0]));
+
+    _rendsCreated = true;
+  }
+
+  //pge->Clear(olc::DARK_BLUE);
+  pge->DrawDecal({0.0f,0.0f}, AS.Decal(S->Scenery), {0.8,0.8});
 
 //#ifdef __EMSCRIPTEN__
   pge->FillRectDecal({0,float(CO.H-20)}, {20.f,20.f});
@@ -37,24 +47,24 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
   auto font = FT.Font("Alkia", FontSize::SMALLER);
   float f = std::max(S->Winning_time-S->Time, 0.0f);
   auto dec = font->RenderStringToDecal(
-      utf8::utf8to32(std::to_string(f)), olc::WHITE);
+      utf8::utf8to32(std::to_string(f)), pix(S->Colors[3]));
   pge->DrawDecal({(float)CO.W-100.0f,
     (float)CO.H-dec->sprite->height - 10.0f}, dec);
 
   auto decalById = [&](int id){
     if (id > 1000 && id < 2000)
-      return _rStones.get()->Decal();
+      return _rMountain.get()->Decal();
     else if (id > 2000 && id < 3000)
       return _rWall.get()->Decal();
     else if (id > 3000)
       return _rHouse.get()->Decal();
     else
-      return _rMountain.get()->Decal();
+      return _rStones.get()->Decal();
 	};
 
   std::vector<PT<float>> vPts;
   std::array<olc::vf2d, 4> arr = {};
-
+/*
   for (int i = S->MountainIds.x; i <= S->MountainIds.y; i++)
   {
     vPts = S->GetPolygon(i);
@@ -66,7 +76,7 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
     }
     pge->DrawWarpedDecal(decalById(i), arr);
   }
-
+*/
   auto heliSprite = AS.Sprite("helicopter")->Size();
   for (const auto& heli : S->Helis)
   {
@@ -129,13 +139,13 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
   {
     font = FT.Font("Alkia", FontSize::BIG);
     dec = font->RenderStringToDecal(
-      utf8::utf8to32(S->StatusText1), olc::WHITE);
+      utf8::utf8to32(S->StatusText1), pix(S->Colors[0]));
     pge->DrawDecal({(float)CO.W/2.0f-dec->sprite->width/2.0f,
       (float)CO.H/2.0f-dec->sprite->height- 25.0f}, dec);
 
     font = FT.Font("Alkia", FontSize::NORMAL);
     dec = font->RenderStringToDecal(
-      utf8::utf8to32(S->StatusText2), olc::WHITE);
+      utf8::utf8to32(S->StatusText2), pix(S->Colors[0]));
     pge->DrawDecal({(float)CO.W/2.0f-dec->sprite->width/2.0f,
       (float)CO.H/2.0f+ 25.0f}, dec);
   }

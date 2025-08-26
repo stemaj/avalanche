@@ -38,6 +38,9 @@ public:
   std::string StatusText2 = "";
   float StatusTextTime = FLT_MAX;
 
+  std::vector<std::array<uint8_t, 4>> Colors = {};
+  std::string Scenery = "";
+
   std::optional<std::unique_ptr<State>> Update(const Input& input, float fElapsedTime) override;
   Render* GetRender() override;
 
@@ -68,7 +71,6 @@ private:
   //std::shared_ptr<PhysicalWorld::ContactChecker> _cl_roof;
   std::list<int> _userdata = {};
   PhysicalWorld _world;
-  std::string _scenery = "";
 
   void LoadLevelData() override;
   void SaveLevelData() override;
