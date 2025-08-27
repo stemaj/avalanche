@@ -12,6 +12,12 @@ std::optional<std::unique_ptr<State>> Starter::SwitchState(const ButtonAction& a
 		case START_GAME:
 			SO.StopMusic();
 			return std::make_unique<Scene>("easy");
+		case OPTION_1:
+			SO.StopMusic();
+			return std::make_unique<Scene>("medium");
+		case OPTION_2:
+			SO.StopMusic();
+			return std::make_unique<Scene>("hard");
 		case BACK:
 			SO.StopMusic();
 			return std::make_unique<MainMenuState>();

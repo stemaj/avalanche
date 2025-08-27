@@ -99,7 +99,7 @@ std::optional<std::unique_ptr<State>> Scene::Update(
   }
 
   Time += fElapsedTime;
-  if (Time*2.0f > (float)NextSpawnId && Time < Winning_time)
+  if (Time*_avalanche_speed > (float)NextSpawnId && Time < Winning_time)
   {
     std::uniform_real_distribution<float> dist_neg{
       _stones_dist_neg.x,_stones_dist_neg.y};
@@ -140,7 +140,7 @@ std::optional<std::unique_ptr<State>> Scene::Update(
 	{
     auto it = std::find_if(Helis.begin(), Helis.end(),
       [](Helicopter& h){return h.payLoad == true && h.fliesAway == false;});
-    if (it != Helis.end() && it->Pos.x > 100.0f)
+    if (it != Helis.end() && it->Pos.x > 50.0f)
     {
       _userdata.push_back(NextWallSpawnId);
 
@@ -243,6 +243,8 @@ void Scene::LoadLevelData()
 
   _wall_dist_neg = LS.PTFloat("wall_dist_neg");
   _wall_dist_pos = LS.PTFloat("wall_dist_pos");
+
+  _avalanche_speed = LS.Float(Scenery + "_avalanche_speed");
 
   Winning_time = LS.Float(Scenery + "_winning_time");
 

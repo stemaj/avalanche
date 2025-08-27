@@ -60,6 +60,8 @@ private:
 
   float _spawnNewHeli = true;
 
+  float _avalanche_speed = 0.0f;
+
   float _wall_angle = 0.0f;
   float _wall_rest = 0.0f;
   float _wall_fric = 0.0f;
