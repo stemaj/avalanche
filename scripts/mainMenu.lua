@@ -37,8 +37,8 @@ graphics = {
 
 --  Option: Text,					 Pos,    Size, Color, Buttondelta
 buttons = {
-    [0] = {"Start Easy Game",      { 0.3, 0.4 }, 0, 0, 10 },
-    [1] = {"Start Medium Game",    { 0.3, 0.52 }, 0, 0, 10 },
-    [2] = {"Start Hard Game",      { 0.3, 0.63 }, 0, 0, 10 },
+    [0] = {"Level: Rookie",     { 0.3, 0.4 }, 0, 0, 10 },
+    [1] = {"Level: Veteran",    { 0.3, 0.52 }, 0, 0, 10 },
+    [2] = {"Level: Commander",  { 0.3, 0.64 }, 0, 0, 10 },
   }
   
