@@ -1,3 +1,4 @@
+#include "game/tutorial.hpp"
 #include <game/sceneRender.hpp>
 #include <game/scene.hpp>
 #include <game/starter.hpp>
@@ -18,6 +19,9 @@ std::optional<std::unique_ptr<State>> Starter::SwitchState(const ButtonAction& a
 		case OPTION_2:
 			SO.StopMusic();
 			return std::make_unique<Scene>("hard");
+		case OPTION_3:
+			SO.StopMusic();
+			return std::make_unique<Tutorial>();
 		case BACK:
 			SO.StopMusic();
 			return std::make_unique<MainMenuState>();

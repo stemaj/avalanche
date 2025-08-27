@@ -506,13 +506,13 @@
     <ClInclude Include="..\olcTemplate\game\guiElements.hpp" />
     <ClInclude Include="..\olcTemplate\game\input.hpp" />
     <ClInclude Include="..\olcTemplate\game\loadsave.hpp" />
-    <ClInclude Include="..\olcTemplate\game\olcTemplate.hpp" />
     <ClInclude Include="..\olcTemplate\game\palette.hpp" />
-    <ClInclude Include="..\olcTemplate\game\physicalWorld.hpp" />
     <ClInclude Include="..\olcTemplate\game\quaternion.hpp" />
     <ClInclude Include="..\olcTemplate\game\room3d.hpp" />
     <ClInclude Include="..\olcTemplate\game\sound.hpp" />
     <ClInclude Include="..\olcTemplate\game\textbox.hpp" />
+    <ClInclude Include="..\olcTemplate\game\physicalWorld.hpp" />
+    <ClInclude Include="..\olcTemplate\game\olcTemplate.hpp" />
     <ClInclude Include="..\olcTemplate\game\src\render\introRender.hpp" />
     <ClInclude Include="..\olcTemplate\game\src\render\levelRender.hpp" />
     <ClInclude Include="..\olcTemplate\game\src\render\loadingRender.hpp" />
@@ -526,8 +526,8 @@
     <ClInclude Include="..\olcTemplate\game\src\state\levelState.hpp" />
     <ClInclude Include="..\olcTemplate\game\src\state\loading.hpp" />
     <ClInclude Include="..\olcTemplate\game\src\state\logoState.hpp" />
-    <ClInclude Include="..\olcTemplate\game\src\state\mainMenuState.hpp" />
     <ClInclude Include="..\olcTemplate\game\src\state\state.hpp" />
+    <ClInclude Include="..\olcTemplate\game\src\state\mainMenuState.hpp" />
     <ClInclude Include="..\olcTemplate\game\src\tools\daytime.hpp" />
     <ClInclude Include="..\olcTemplate\game\src\tools\dialog.hpp" />
     <ClInclude Include="..\olcTemplate\game\src\tools\fader.hpp" />
@@ -541,6 +541,8 @@
     <ClInclude Include="..\game\starter.hpp" />
     <ClInclude Include="..\game\scene.hpp" />
     <ClInclude Include="..\game\sceneRender.hpp" />
+    <ClInclude Include="..\game\tutorial.hpp" />
+    <ClInclude Include="..\game\tutorialRender.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\olcTemplate\sdk\lz4-1.10.0\lz4.c">
@@ -561,17 +563,17 @@
     </ClCompile>
     <ClCompile Include="..\olcTemplate\game\src\main.cpp">
     </ClCompile>
-    <ClCompile Include="..\olcTemplate\game\src\olcTemplate.cpp">
-    </ClCompile>
     <ClCompile Include="..\olcTemplate\game\src\palette.cpp">
-    </ClCompile>
-    <ClCompile Include="..\olcTemplate\game\src\physicalWorld.cpp">
     </ClCompile>
     <ClCompile Include="..\olcTemplate\game\src\room3d.cpp">
     </ClCompile>
     <ClCompile Include="..\olcTemplate\game\src\sound.cpp">
     </ClCompile>
     <ClCompile Include="..\olcTemplate\game\src\textbox.cpp">
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\physicalWorld.cpp">
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\olcTemplate.cpp">
     </ClCompile>
     <ClCompile Include="..\olcTemplate\game\src\engine\src\olcPixelGameEngine.cpp">
     </ClCompile>
@@ -631,6 +633,10 @@
     </ClCompile>
     <ClCompile Include="..\game\src\sceneRender.cpp">
     </ClCompile>
+    <ClCompile Include="..\game\src\tutorial.cpp">
+    </ClCompile>
+    <ClCompile Include="..\game\src\tutorialRender.cpp">
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\genie.lua" />
@@ -642,11 +648,15 @@
     <None Include="..\scripts\scenes.lua" />
     <None Include="..\scripts\world.lua" />
     <None Include="..\scripts\intro.lua" />
+    <None Include="..\scripts\colors.lua" />
     <None Include="..\olcTemplate\assets\fonts\dogica.ttf" />
     <None Include="..\assets\fonts\Alkia.ttf" />
     <None Include="..\olcTemplate\assets\wav\breaking-news-177297.mp3" />
     <None Include="..\olcTemplate\assets\wav\groovy-energy-sports-80-bpm-short-12275.mp3" />
     <None Include="..\olcTemplate\assets\wav\hard-rock-logo-108960.mp3" />
+    <None Include="..\assets\mp3\stone.mp3" />
+    <None Include="..\assets\mp3\helicopter.mp3" />
+    <None Include="..\assets\mp3\bird.mp3" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\olcTemplate\assets\png\back-button.png">
@@ -680,6 +690,18 @@
     <Image Include="..\assets\png\helicopter.png">
       <DeploymentContent>true</DeploymentContent>
       <Link>assets\png\helicopter.png</Link>
+    </Image>
+    <Image Include="..\assets\png\easy.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>assets\png\easy.png</Link>
+    </Image>
+    <Image Include="..\assets\png\title.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>assets\png\title.png</Link>
+    </Image>
+    <Image Include="..\assets\png\tutorial.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>assets\png\tutorial.png</Link>
     </Image>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -163,8 +163,14 @@ std::optional<std::unique_ptr<State>> Scene::Update(
   {
     if (_cl_house->IsInContactWithId(1000, 0))
     {
-      _world.SetBoostXY(3001, 100.0f, 150.0f);
-      _world.SetBoostXY(3002, -125.0f, 75.0f);
+      float fac = 1.0f;
+      if (Scenery == "hard")
+      {
+        fac = -1.0f;
+      }
+
+      _world.SetBoostXY(3001, fac*100.0f, 150.0f);
+      _world.SetBoostXY(3002, fac*-125.0f, 75.0f);
       _levelEndTime = Time + 5.0f;
       StatusText1 = "YOU FAILED !!!";
       StatusText2 = "YOUR HOME IS LOST.";
@@ -172,8 +178,14 @@ std::optional<std::unique_ptr<State>> Scene::Update(
     }
     if (_cl_house->IsInContactWithId(3000, 2000))
     {
-      _world.SetBoostXY(3001, -50.0f, 10.0f);
-      _world.SetBoostXY(3002, -60.0f, 10.0f);
+      float fac = 1.0f;
+      if (Scenery == "hard")
+      {
+        fac = -1.0f;
+      }
+
+      _world.SetBoostXY(3001, fac*(-50.0f), 10.0f);
+      _world.SetBoostXY(3002, fac*(-60.0f), 10.0f);
       _levelEndTime = Time + 5.0f;
       StatusText1 = "YOU FOOL !!!";
       StatusText2 = "THIS WAS A VERY BAD IDEA.";

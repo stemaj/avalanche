@@ -71,6 +71,8 @@ ifeq ($(config),debug)
 	$(OBJDIR)/game/src/scene.o \
 	$(OBJDIR)/game/src/sceneRender.o \
 	$(OBJDIR)/game/src/starter.o \
+	$(OBJDIR)/game/src/tutorial.o \
+	$(OBJDIR)/game/src/tutorialRender.o \
 	$(OBJDIR)/olcTemplate/game/src/animation.o \
 	$(OBJDIR)/olcTemplate/game/src/assets.o \
 	$(OBJDIR)/olcTemplate/game/src/coordinates.o \
@@ -147,6 +149,8 @@ ifeq ($(config),test)
 	$(OBJDIR)/game/src/scene.o \
 	$(OBJDIR)/game/src/sceneRender.o \
 	$(OBJDIR)/game/src/starter.o \
+	$(OBJDIR)/game/src/tutorial.o \
+	$(OBJDIR)/game/src/tutorialRender.o \
 	$(OBJDIR)/olcTemplate/game/src/animation.o \
 	$(OBJDIR)/olcTemplate/game/src/assets.o \
 	$(OBJDIR)/olcTemplate/game/src/coordinates.o \
@@ -223,6 +227,8 @@ ifeq ($(config),release)
 	$(OBJDIR)/game/src/scene.o \
 	$(OBJDIR)/game/src/sceneRender.o \
 	$(OBJDIR)/game/src/starter.o \
+	$(OBJDIR)/game/src/tutorial.o \
+	$(OBJDIR)/game/src/tutorialRender.o \
 	$(OBJDIR)/olcTemplate/game/src/animation.o \
 	$(OBJDIR)/olcTemplate/game/src/assets.o \
 	$(OBJDIR)/olcTemplate/game/src/coordinates.o \
@@ -299,6 +305,8 @@ ifeq ($(config),debug64)
 	$(OBJDIR)/game/src/scene.o \
 	$(OBJDIR)/game/src/sceneRender.o \
 	$(OBJDIR)/game/src/starter.o \
+	$(OBJDIR)/game/src/tutorial.o \
+	$(OBJDIR)/game/src/tutorialRender.o \
 	$(OBJDIR)/olcTemplate/game/src/animation.o \
 	$(OBJDIR)/olcTemplate/game/src/assets.o \
 	$(OBJDIR)/olcTemplate/game/src/coordinates.o \
@@ -375,6 +383,8 @@ ifeq ($(config),test64)
 	$(OBJDIR)/game/src/scene.o \
 	$(OBJDIR)/game/src/sceneRender.o \
 	$(OBJDIR)/game/src/starter.o \
+	$(OBJDIR)/game/src/tutorial.o \
+	$(OBJDIR)/game/src/tutorialRender.o \
 	$(OBJDIR)/olcTemplate/game/src/animation.o \
 	$(OBJDIR)/olcTemplate/game/src/assets.o \
 	$(OBJDIR)/olcTemplate/game/src/coordinates.o \
@@ -451,6 +461,8 @@ ifeq ($(config),release64)
 	$(OBJDIR)/game/src/scene.o \
 	$(OBJDIR)/game/src/sceneRender.o \
 	$(OBJDIR)/game/src/starter.o \
+	$(OBJDIR)/game/src/tutorial.o \
+	$(OBJDIR)/game/src/tutorialRender.o \
 	$(OBJDIR)/olcTemplate/game/src/animation.o \
 	$(OBJDIR)/olcTemplate/game/src/assets.o \
 	$(OBJDIR)/olcTemplate/game/src/coordinates.o \
@@ -528,6 +540,8 @@ ifeq ($(config),debuguniv64)
 	$(OBJDIR)/game/src/scene.o \
 	$(OBJDIR)/game/src/sceneRender.o \
 	$(OBJDIR)/game/src/starter.o \
+	$(OBJDIR)/game/src/tutorial.o \
+	$(OBJDIR)/game/src/tutorialRender.o \
 	$(OBJDIR)/olcTemplate/game/src/animation.o \
 	$(OBJDIR)/olcTemplate/game/src/assets.o \
 	$(OBJDIR)/olcTemplate/game/src/coordinates.o \
@@ -605,6 +619,8 @@ ifeq ($(config),testuniv64)
 	$(OBJDIR)/game/src/scene.o \
 	$(OBJDIR)/game/src/sceneRender.o \
 	$(OBJDIR)/game/src/starter.o \
+	$(OBJDIR)/game/src/tutorial.o \
+	$(OBJDIR)/game/src/tutorialRender.o \
 	$(OBJDIR)/olcTemplate/game/src/animation.o \
 	$(OBJDIR)/olcTemplate/game/src/assets.o \
 	$(OBJDIR)/olcTemplate/game/src/coordinates.o \
@@ -682,6 +698,8 @@ ifeq ($(config),releaseuniv64)
 	$(OBJDIR)/game/src/scene.o \
 	$(OBJDIR)/game/src/sceneRender.o \
 	$(OBJDIR)/game/src/starter.o \
+	$(OBJDIR)/game/src/tutorial.o \
+	$(OBJDIR)/game/src/tutorialRender.o \
 	$(OBJDIR)/olcTemplate/game/src/animation.o \
 	$(OBJDIR)/olcTemplate/game/src/assets.o \
 	$(OBJDIR)/olcTemplate/game/src/coordinates.o \
@@ -812,6 +830,14 @@ $(OBJDIR)/game/src/sceneRender.o: ../game/src/sceneRender.cpp $(GCH) $(MAKEFILE)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -c "$<"
 
 $(OBJDIR)/game/src/starter.o: ../game/src/starter.cpp $(GCH) $(MAKEFILE) | $(OBJDIR)/game/src
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -c "$<"
+
+$(OBJDIR)/game/src/tutorial.o: ../game/src/tutorial.cpp $(GCH) $(MAKEFILE) | $(OBJDIR)/game/src
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -c "$<"
+
+$(OBJDIR)/game/src/tutorialRender.o: ../game/src/tutorialRender.cpp $(GCH) $(MAKEFILE) | $(OBJDIR)/game/src
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -c "$<"
 

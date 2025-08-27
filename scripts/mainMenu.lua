@@ -2,9 +2,9 @@ dofile('scripts/colors.lua')
 
 background_color = 0
 
-button_normal_color = 3
-button_hover_color = 1
-button_click_color = 2
+button_normal_color = 2
+button_hover_color = 3
+button_click_color = 1
 
 font = "Alkia"
 
@@ -37,8 +37,9 @@ graphics = {
 
 --  Option: Text,					 Pos,    Size, Color, Buttondelta
 buttons = {
-    [0] = {"Level: Rookie",     { 0.3, 0.4 }, 0, 0, 10 },
-    [1] = {"Level: Veteran",    { 0.3, 0.52 }, 0, 0, 10 },
-    [2] = {"Level: Commander",  { 0.3, 0.64 }, 0, 0, 10 },
+    [3] = {"Tutorial",   { 0.3, 0.4 }, 0, 0, 10 },
+    [0] = {"Rookie",     { 0.3, 0.52 }, 0, 0, 10 },
+    [1] = {"Veteran",    { 0.3, 0.64 }, 0, 0, 10 },
+    [2] = {"Commander",  { 0.3, 0.76 }, 0, 0, 10 },
   }
   

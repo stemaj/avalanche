@@ -133,6 +133,9 @@
     <Filter Include="olcTemplate\assets\wav">
       <UniqueIdentifier>{5865CFFD-445F-F84F-2DCC-8E6019655EBC}</UniqueIdentifier>
     </Filter>
+    <Filter Include="assets\mp3">
+      <UniqueIdentifier>{84F5CDA8-70AD-0FF6-D9B4-E851C58BAAE6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\genie.lua" />
@@ -160,6 +163,9 @@
     <None Include="..\scripts\intro.lua">
       <Filter>scripts</Filter>
     </None>
+    <None Include="..\scripts\colors.lua">
+      <Filter>scripts</Filter>
+    </None>
     <None Include="..\olcTemplate\assets\fonts\dogica.ttf">
       <Filter>olcTemplate\assets\fonts</Filter>
     </None>
@@ -174,6 +180,15 @@
     </None>
     <None Include="..\olcTemplate\assets\wav\hard-rock-logo-108960.mp3">
       <Filter>olcTemplate\assets\wav</Filter>
+    </None>
+    <None Include="..\assets\mp3\stone.mp3">
+      <Filter>assets\mp3</Filter>
+    </None>
+    <None Include="..\assets\mp3\helicopter.mp3">
+      <Filter>assets\mp3</Filter>
+    </None>
+    <None Include="..\assets\mp3\bird.mp3">
+      <Filter>assets\mp3</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -705,13 +720,7 @@
     <ClInclude Include="..\olcTemplate\game\loadsave.hpp">
       <Filter>olcTemplate\game</Filter>
     </ClInclude>
-    <ClInclude Include="..\olcTemplate\game\olcTemplate.hpp">
-      <Filter>olcTemplate\game</Filter>
-    </ClInclude>
     <ClInclude Include="..\olcTemplate\game\palette.hpp">
-      <Filter>olcTemplate\game</Filter>
-    </ClInclude>
-    <ClInclude Include="..\olcTemplate\game\physicalWorld.hpp">
       <Filter>olcTemplate\game</Filter>
     </ClInclude>
     <ClInclude Include="..\olcTemplate\game\quaternion.hpp">
@@ -724,6 +733,12 @@
       <Filter>olcTemplate\game</Filter>
     </ClInclude>
     <ClInclude Include="..\olcTemplate\game\textbox.hpp">
+      <Filter>olcTemplate\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\physicalWorld.hpp">
+      <Filter>olcTemplate\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\olcTemplate\game\olcTemplate.hpp">
       <Filter>olcTemplate\game</Filter>
     </ClInclude>
     <ClInclude Include="..\olcTemplate\game\src\render\introRender.hpp">
@@ -765,10 +780,10 @@
     <ClInclude Include="..\olcTemplate\game\src\state\logoState.hpp">
       <Filter>olcTemplate\game\src\state</Filter>
     </ClInclude>
-    <ClInclude Include="..\olcTemplate\game\src\state\mainMenuState.hpp">
+    <ClInclude Include="..\olcTemplate\game\src\state\state.hpp">
       <Filter>olcTemplate\game\src\state</Filter>
     </ClInclude>
-    <ClInclude Include="..\olcTemplate\game\src\state\state.hpp">
+    <ClInclude Include="..\olcTemplate\game\src\state\mainMenuState.hpp">
       <Filter>olcTemplate\game\src\state</Filter>
     </ClInclude>
     <ClInclude Include="..\olcTemplate\game\src\tools\daytime.hpp">
@@ -810,6 +825,12 @@
     <ClInclude Include="..\game\sceneRender.hpp">
       <Filter>game</Filter>
     </ClInclude>
+    <ClInclude Include="..\game\tutorial.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game\tutorialRender.hpp">
+      <Filter>game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\olcTemplate\sdk\lz4-1.10.0\lz4.c">
@@ -839,13 +860,7 @@
     <ClCompile Include="..\olcTemplate\game\src\main.cpp">
       <Filter>olcTemplate\game\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\olcTemplate\game\src\olcTemplate.cpp">
-      <Filter>olcTemplate\game\src</Filter>
-    </ClCompile>
     <ClCompile Include="..\olcTemplate\game\src\palette.cpp">
-      <Filter>olcTemplate\game\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\olcTemplate\game\src\physicalWorld.cpp">
       <Filter>olcTemplate\game\src</Filter>
     </ClCompile>
     <ClCompile Include="..\olcTemplate\game\src\room3d.cpp">
@@ -855,6 +870,12 @@
       <Filter>olcTemplate\game\src</Filter>
     </ClCompile>
     <ClCompile Include="..\olcTemplate\game\src\textbox.cpp">
+      <Filter>olcTemplate\game\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\physicalWorld.cpp">
+      <Filter>olcTemplate\game\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\olcTemplate\game\src\olcTemplate.cpp">
       <Filter>olcTemplate\game\src</Filter>
     </ClCompile>
     <ClCompile Include="..\olcTemplate\game\src\engine\src\olcPixelGameEngine.cpp">
@@ -944,6 +965,12 @@
     <ClCompile Include="..\game\src\sceneRender.cpp">
       <Filter>game\src</Filter>
     </ClCompile>
+    <ClCompile Include="..\game\src\tutorial.cpp">
+      <Filter>game\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\game\src\tutorialRender.cpp">
+      <Filter>game\src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\olcTemplate\assets\png\back-button.png">
@@ -968,6 +995,15 @@
       <Filter>olcTemplate\assets\sheets</Filter>
     </Image>
     <Image Include="..\assets\png\helicopter.png">
+      <Filter>assets\png</Filter>
+    </Image>
+    <Image Include="..\assets\png\easy.png">
+      <Filter>assets\png</Filter>
+    </Image>
+    <Image Include="..\assets\png\title.png">
+      <Filter>assets\png</Filter>
+    </Image>
+    <Image Include="..\assets\png\tutorial.png">
       <Filter>assets\png</Filter>
     </Image>
   </ItemGroup>
