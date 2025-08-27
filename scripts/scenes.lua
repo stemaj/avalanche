@@ -12,11 +12,11 @@ easy_stone_angle = 1.27
 easy_stone_rest = 0.5
 easy_stone_fric = 0.3
 
-easy_wall_angle = 1.27
+easy_wall_angle = 0.0
 easy_wall_rest = 0.05
 easy_wall_fric = 0.3
 
-wall_dist_neg = { -31.0, -25.0 }
-wall_dist_pos = { 25.0, 31.0 }
+wall_dist_neg = { -51.0, -10.0 }
+wall_dist_pos = { 10.0, 51.0 }
 
 easy_roof_height = 60

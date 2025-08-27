@@ -88,8 +88,25 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
   {
     pge->DrawDecal({
       heli.Pos.x - heli.Scale.x*heliSprite.x/2.0f,
-      heli.Pos.y - heli.Scale.y*heliSprite.y/2.0f + 50.0f},
+      heli.Pos.y - heli.Scale.y*heliSprite.y/2.0f},
       AS.Decal("helicopter"), {heli.Scale.x, heli.Scale.y});
+
+    if (heli.payLoad && !heli.fliesAway)
+    {
+      arr[0].x = heli.Pos.x + S->LocalPtsNextBlockSpawn[0].x; arr[0].y = heli.Pos.y + 50.0f + S->LocalPtsNextBlockSpawn[0].y;
+      arr[1].x = heli.Pos.x + S->LocalPtsNextBlockSpawn[1].x; arr[1].y = heli.Pos.y + 50.0f + S->LocalPtsNextBlockSpawn[1].y;
+      arr[2].x = heli.Pos.x + S->LocalPtsNextBlockSpawn[2].x; arr[2].y = heli.Pos.y + 50.0f + S->LocalPtsNextBlockSpawn[2].y;
+      arr[3].x = heli.Pos.x + S->LocalPtsNextBlockSpawn[3].x; arr[3].y = heli.Pos.y + 50.0f + S->LocalPtsNextBlockSpawn[3].y;
+      pge->DrawWarpedDecal(decalById(2500), arr);
+    }
+    else if (!heli.payLoad && heli.fliesAway)
+    {
+      arr[0].x = heli.Pos.x + heli.Scale.x/0.25f * heli.fliesAwayStone[0].x; arr[0].y = heli.Pos.y + heli.Scale.y/0.25f * (50.0f + heli.fliesAwayStone[0].y);
+      arr[1].x = heli.Pos.x + heli.Scale.x/0.25f * heli.fliesAwayStone[1].x; arr[1].y = heli.Pos.y + heli.Scale.y/0.25f * (50.0f + heli.fliesAwayStone[1].y);
+      arr[2].x = heli.Pos.x + heli.Scale.x/0.25f * heli.fliesAwayStone[2].x; arr[2].y = heli.Pos.y + heli.Scale.y/0.25f * (50.0f + heli.fliesAwayStone[2].y);
+      arr[3].x = heli.Pos.x + heli.Scale.x/0.25f * heli.fliesAwayStone[3].x; arr[3].y = heli.Pos.y + heli.Scale.y/0.25f * (50.0f + heli.fliesAwayStone[3].y);
+      pge->DrawWarpedDecal(decalById(2500), arr);
+    }
   }
 
   vPts = S->GetPolygon(3001);

@@ -45,6 +45,9 @@ std::optional<std::unique_ptr<State>> Scene::Update(
     SO.StartEffect("assets/mp3/helicopter.mp3", 1.0f);
     _heliSound = true;
   }
+
+  std::random_device rd;
+	std::mt19937 gen(rd());
   
   if (_spawnNewHeli)
   {
@@ -53,8 +56,16 @@ std::optional<std::unique_ptr<State>> Scene::Update(
     Helis.push_back(heli);
 
     // TODO Coord for next block
+    std::uniform_real_distribution<float> dist_neg{
+      _wall_dist_neg.x,_wall_dist_neg.y};
+    std::uniform_real_distribution<float> dist_pos{
+      _wall_dist_pos.x,_wall_dist_pos.y};
 
-    
+    LocalPtsNextBlockSpawn.clear();
+    LocalPtsNextBlockSpawn.push_back({dist_neg(gen), dist_neg(gen)});
+    LocalPtsNextBlockSpawn.push_back({dist_neg(gen), dist_pos(gen)});
+    LocalPtsNextBlockSpawn.push_back({dist_pos(gen), dist_pos(gen)});
+    LocalPtsNextBlockSpawn.push_back({dist_pos(gen), dist_neg(gen)});
 
     _spawnNewHeli = false;
   }
@@ -77,16 +88,16 @@ std::optional<std::unique_ptr<State>> Scene::Update(
     if (h.Pos.x > 400.0f && h.payLoad == true)
     {
       h.payLoad = false;
+      h.fliesAway = true;
       getOff(h, fElapsedTime);
       if (Time < Winning_time)
       {
+        h.fliesAwayStone = LocalPtsNextBlockSpawn;
         _spawnNewHeli = true;
       }      
     }
   }
 
-  std::random_device rd;
-	std::mt19937 gen(rd());
   Time += fElapsedTime;
   if (Time*2.0f > (float)NextSpawnId && Time < Winning_time)
   {
@@ -128,23 +139,18 @@ std::optional<std::unique_ptr<State>> Scene::Update(
 	if (input.leftMouseClicked)
 	{
     auto it = std::find_if(Helis.begin(), Helis.end(),
-      [](Helicopter& h){return h.payLoad == true;});
-    if (it != Helis.end())
+      [](Helicopter& h){return h.payLoad == true && h.fliesAway == false;});
+    if (it != Helis.end() && it->Pos.x > 100.0f)
     {
       _userdata.push_back(NextWallSpawnId);
 
-      std::uniform_real_distribution<float> dist_neg{
-        _wall_dist_neg.x,_wall_dist_neg.y};
-      std::uniform_real_distribution<float> dist_pos{
-        _wall_dist_pos.x,_wall_dist_pos.y};
-
       std::vector<PT<float>> localPts;
-      localPts.push_back({dist_neg(gen), dist_neg(gen)});
-      localPts.push_back({dist_neg(gen), dist_pos(gen)});
-      localPts.push_back({dist_pos(gen), dist_pos(gen)});
-      localPts.push_back({dist_pos(gen), dist_neg(gen)});
+      localPts.push_back(LocalPtsNextBlockSpawn[0]);
+      localPts.push_back(LocalPtsNextBlockSpawn[1]);
+      localPts.push_back(LocalPtsNextBlockSpawn[2]);
+      localPts.push_back(LocalPtsNextBlockSpawn[3]);
 
-      _world.SpawnPolygon(NextWallSpawnId, { it->Pos.x, it->Pos.y + 100.0f },
+      _world.SpawnPolygon(NextWallSpawnId, { it->Pos.x, it->Pos.y + 50.0f },
         localPts, _wall_angle, 2,  1.0,
         _wall_rest, _wall_fric, 0.0, 0.0, &_userdata.back());
       NextWallSpawnId++;
@@ -231,9 +237,9 @@ void Scene::LoadLevelData()
 
   _roof_height = LS.Float(Scenery + "_roof_height");
 
-  _wall_rest = LS.Float(Scenery + "_stone_rest");
-  _wall_fric = LS.Float(Scenery + "_stone_fric");
-  _wall_angle = LS.Float(Scenery + "_stone_angle");
+  _wall_rest = LS.Float(Scenery + "_wall_rest");
+  _wall_fric = LS.Float(Scenery + "_wall_fric");
+  _wall_angle = LS.Float(Scenery + "_wall_angle");
 
   _wall_dist_neg = LS.PTFloat("wall_dist_neg");
   _wall_dist_pos = LS.PTFloat("wall_dist_pos");

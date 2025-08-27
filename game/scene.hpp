@@ -28,6 +28,8 @@ public:
   {
     PT<float> Pos = {};
     bool payLoad = true;
+    bool fliesAway = false;
+    std::vector<PT<float>> fliesAwayStone = {};
     PT<float> Scale = {0.25f, 0.25f};
   };
   std::vector<Helicopter> Helis = {};
@@ -40,6 +42,8 @@ public:
 
   std::vector<std::array<uint8_t, 4>> Colors = {};
   std::string Scenery = "";
+
+  std::vector<PT<float>> LocalPtsNextBlockSpawn = {};
 
   PT<float> BackBox = { 29., 13. };
 
