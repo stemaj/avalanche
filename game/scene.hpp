@@ -41,6 +41,8 @@ public:
   std::vector<std::array<uint8_t, 4>> Colors = {};
   std::string Scenery = "";
 
+  PT<float> BackBox = { 29., 13. };
+
   std::optional<std::unique_ptr<State>> Update(const Input& input, float fElapsedTime) override;
   Render* GetRender() override;
 
@@ -57,7 +59,8 @@ private:
   float _wall_angle = 0.0f;
   float _wall_rest = 0.0f;
   float _wall_fric = 0.0f;
-  std::vector<PT<float>> _wall_local_coord = {};
+  PT<float> _wall_dist_neg = {};
+  PT<float> _wall_dist_pos = {};
 
   float _roof_height = 0.0f;
   

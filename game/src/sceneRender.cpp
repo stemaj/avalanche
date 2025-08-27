@@ -14,6 +14,8 @@
 
 using namespace stemaj;
 
+#define LEVEL_DESIGN true
+
 SceneRender::SceneRender() : _rMountain(std::make_unique<olc::Renderable>()),
   _rStones(std::make_unique<olc::Renderable>()),
 	_rWall(std::make_unique<olc::Renderable>()),
@@ -39,12 +41,12 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
     _rendsCreated = true;
   }
 
-  //pge->Clear(olc::DARK_BLUE);
+#ifdef LEVEL_DESIGN
+  pge->Clear(olc::GREY);
+#else
+  // background
   pge->DrawDecal({0.0f,0.0f}, AS.Decal(S->Scenery), {0.8,0.8});
-
-//#ifdef __EMSCRIPTEN__
-  pge->FillRectDecal({0,float(CO.H-20)}, {20.f,20.f});
-//#endif
+#endif
 
   auto font = FT.Font("Alkia", FontSize::SMALLER);
   float f = std::max(S->Winning_time-S->Time, 0.0f);
@@ -66,7 +68,8 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
 
   std::vector<PT<float>> vPts;
   std::array<olc::vf2d, 4> arr = {};
-/*
+
+#ifdef LEVEL_DESIGN
   for (int i = S->MountainIds.x; i <= S->MountainIds.y; i++)
   {
     vPts = S->GetPolygon(i);
@@ -78,7 +81,8 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
     }
     pge->DrawWarpedDecal(decalById(i), arr);
   }
-*/
+#endif
+
   auto heliSprite = AS.Sprite("helicopter")->Size();
   for (const auto& heli : S->Helis)
   {
@@ -105,38 +109,25 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
   }
   pge->DrawWarpedDecal(decalById(3002), arr);
 
+  auto drawBlock = [pge, S, decalById, &arr](int i){
+    auto vPts = S->GetPolygon(i);
+    arr[0].x = vPts[0].x; arr[0].y = vPts[0].y;
+    arr[1].x = vPts[1].x; arr[1].y = vPts[1].y;
+    arr[2].x = vPts[2].x; arr[2].y = vPts[2].y;
+    arr[3].x = vPts[3].x; arr[3].y = vPts[3].y;
+    pge->DrawWarpedDecal(decalById(i), arr);
+  };
 
   for (int i = 1; i < S->NextSpawnId; i++)
   {
-    vPts = S->GetPolygon(i);
-    {
-      arr[0].x = vPts[0].x; arr[0].y = vPts[0].y;
-      arr[1].x = vPts[1].x; arr[1].y = vPts[1].y;
-      arr[2].x = vPts[2].x; arr[2].y = vPts[2].y;
-      arr[3].x = vPts[3].x; arr[3].y = vPts[3].y;
-    }
-    pge->DrawWarpedDecal(decalById(i), arr);
+    drawBlock(i);
   }
-
 	for (int i = 2001; i < S->NextWallSpawnId; i++)
 	{
-		vPts = S->GetPolygon(i);
-		{
-			arr[0].x = vPts[0].x; arr[0].y = vPts[0].y;
-			arr[1].x = vPts[1].x; arr[1].y = vPts[1].y;
-			arr[2].x = vPts[2].x; arr[2].y = vPts[2].y;
-      if (vPts.size() < 4)
-      {
-        arr[3].x = vPts[2].x+0.01f; arr[3].y = vPts[2].y-0.01f;
-      }
-      else
-      {
-        arr[3].x = vPts[3].x; arr[3].y = vPts[3].y;      
-      }
-		}
-		pge->DrawWarpedDecal(decalById(i), arr);
+		drawBlock(i);
 	}
 
+  // success / failure Texts
   if (S->StatusTextTime < S->Time)
   {
     font = FT.Font("Alkia", FontSize::BIG);
@@ -151,4 +142,12 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
     pge->DrawDecal({(float)CO.W/2.0f-dec->sprite->width/2.0f,
       (float)CO.H/2.0f+ 25.0f}, dec);
   }
+
+  // back button
+  font = FT.Font("Alkia", FontSize::SMALLEST);
+  dec = font->RenderStringToDecal(
+      utf8::utf8to32(std::string("BACK")), pix(S->Colors[0]));
+  pge->FillRectDecal({0.0f,(float)CO.H-S->BackBox.y},
+    {S->BackBox.x,S->BackBox.y});
+  pge->DrawDecal({0.0f, (float)CO.H-dec->sprite->height}, dec);
 }

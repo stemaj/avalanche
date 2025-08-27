@@ -51,6 +51,11 @@ std::optional<std::unique_ptr<State>> Scene::Update(
     Helicopter heli;
     heli.Pos = {0.0f,50.0f};
     Helis.push_back(heli);
+
+    // TODO Coord for next block
+
+    
+
     _spawnNewHeli = false;
   }
   for (auto& h : Helis)
@@ -60,8 +65,8 @@ std::optional<std::unique_ptr<State>> Scene::Update(
     auto getOff = [](Helicopter& h, float fElapsedTime){
       h.Pos.x += 50.0f * fElapsedTime;
       h.Pos.y -= 100.0f * fElapsedTime;
-      h.Scale.x -= 0.005f;
-      h.Scale.y -= 0.005f;
+      h.Scale.x = std::max(h.Scale.x-0.005f, 0.005f);
+      h.Scale.y = std::max(h.Scale.y-0.005f, 0.005f);
     };
 
     if (h.payLoad == false)
@@ -127,8 +132,20 @@ std::optional<std::unique_ptr<State>> Scene::Update(
     if (it != Helis.end())
     {
       _userdata.push_back(NextWallSpawnId);
+
+      std::uniform_real_distribution<float> dist_neg{
+        _wall_dist_neg.x,_wall_dist_neg.y};
+      std::uniform_real_distribution<float> dist_pos{
+        _wall_dist_pos.x,_wall_dist_pos.y};
+
+      std::vector<PT<float>> localPts;
+      localPts.push_back({dist_neg(gen), dist_neg(gen)});
+      localPts.push_back({dist_neg(gen), dist_pos(gen)});
+      localPts.push_back({dist_pos(gen), dist_pos(gen)});
+      localPts.push_back({dist_pos(gen), dist_neg(gen)});
+
       _world.SpawnPolygon(NextWallSpawnId, { it->Pos.x, it->Pos.y + 100.0f },
-        _wall_local_coord, _wall_angle, 2,  1.0,
+        localPts, _wall_angle, 2,  1.0,
         _wall_rest, _wall_fric, 0.0, 0.0, &_userdata.back());
       NextWallSpawnId++;
       it->payLoad = false;
@@ -184,7 +201,7 @@ std::optional<std::unique_ptr<State>> Scene::Update(
 
   bool getOutOfHere = input.escapePressed;
 //#ifdef __EMSCRIPTEN__
-  if (input.leftMouseClicked && input.mouseX < 20 && input.mouseY > (CO.H/2-20))
+  if (input.leftMouseClicked && input.mouseX < BackBox.x && input.mouseY > (CO.H-BackBox.y))
   {
     getOutOfHere = true;
   }
@@ -217,7 +234,9 @@ void Scene::LoadLevelData()
   _wall_rest = LS.Float(Scenery + "_stone_rest");
   _wall_fric = LS.Float(Scenery + "_stone_fric");
   _wall_angle = LS.Float(Scenery + "_stone_angle");
-  _wall_local_coord = LS.VPTFloat(Scenery + "_wall_local_coord");
+
+  _wall_dist_neg = LS.PTFloat("wall_dist_neg");
+  _wall_dist_pos = LS.PTFloat("wall_dist_pos");
 
   Winning_time = LS.Float(Scenery + "_winning_time");
 

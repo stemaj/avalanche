@@ -16,21 +16,7 @@ easy_wall_angle = 1.27
 easy_wall_rest = 0.05
 easy_wall_fric = 0.3
 
-wall_siz = 30.0
-
--- Rechteck
-easy_wall_local_coord = {
-  {-wall_siz,-wall_siz},
-  {-wall_siz,wall_siz},
-  {wall_siz,wall_siz},
-  {wall_siz,-wall_siz}
-}
-
--- -- Dreieck
--- easy_wall_local_coord = {
---   {-wall_siz,wall_siz},
---   {wall_siz,wall_siz},
---   {0.0,-wall_siz},
--- }
+wall_dist_neg = { -31.0, -25.0 }
+wall_dist_pos = { 25.0, 31.0 }
 
 easy_roof_height = 60
