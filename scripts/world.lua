@@ -20,17 +20,17 @@ easy_rects = {
 }
 
 
-local mpt1 = { 370.0, 350.0 }
-local mpt2 = { 410.0, 280.0 }
-local mpt3 = { 510.0, 270.0 }
+local mpt1 = { 370.0, 347.0 }
+local mpt2 = { 410.0, 277.0 }
+local mpt3 = { 510.0, 266.0 }
 local mpt4 = { 570.0, 230.0 }
 local mpt5 = { 590.0, 190.0 }
-local mpt6 = { 700.0, 110.0 }
-local mpt7 = { 740.0,   0.0 }
+local mpt6 = { 698.0, 110.0 }
+local mpt7 = { 738.0,   0.0 }
 local mpt8 = { 1000.0, -100.0 }
 
 medium_rects = {
-  {1001,  { -100.0,350.0 },  mpt1 ,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
+  {1001,  { -100.0,347.0 },  mpt1 ,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
   {1002,   mpt1 ,            mpt2,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
   {1003,   mpt2 ,            mpt3,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
   {1004,   mpt3 ,            mpt4,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
@@ -39,21 +39,21 @@ medium_rects = {
   {1007,   mpt6 ,            mpt7,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
   {1008,   mpt7 ,            mpt8,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
 
-  {3001,  { 40.0,320.0 },  { 100.0, 320.0 },   house_size, 2,  1.0, house_rest, house_fric, 0.0, 0.0},
+  {3001,  { 40.0,317.0 },  { 100.0, 317.0 },   house_size, 2,  1.0, house_rest, house_fric, 0.0, 0.0},
 }
 
-local hpt1 = { 300.0, 350.0 }
+local hpt1 = { 300.0, 343.0 }
 local hpt2 = { 380.0, 300.0 }
 local hpt3 = { 450.0, 180.0 }
-local hpt4 = { 550.0, 100.0 }
-local hpt5 = { 640.0, 20.0 }
+local hpt4 = { 547.0, 97.0 }
+local hpt5 = { 637.0, 17.0 }
 local hpt6 = { 670.0, -10.0 }
 local hpt7 = { 800.0, -100.0 }
 local hpt8 = { 1000.0, -150.0 }
 
 
 hard_rects = {
-  {1001,  { -100.0,350.0 },  hpt1,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
+  {1001,  { -100.0,343.0 },  hpt1,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
   {1002,  hpt1,  hpt2,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
   {1003,  hpt2,  hpt3,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
   {1004,  hpt3,  hpt4,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
@@ -62,7 +62,7 @@ hard_rects = {
   {1007,  hpt6,  hpt7,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
   {1008,  hpt7,  hpt8,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
 
-  {3001,  { 40.0,320.0 },  { 100.0, 320.0 },   house_size, 2,  1.0, house_rest, house_fric, 0.0, 0.0},
+  {3001,  { 40.0,313.0 },  { 100.0, 313.0 },   house_size, 2,  1.0, house_rest, house_fric, 0.0, 0.0},
 }
 
 box2d_scale = 0.01 --nicht aendern...

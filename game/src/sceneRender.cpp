@@ -15,7 +15,7 @@
 
 using namespace stemaj;
 
-#define LEVEL_DESIGN true
+#define LEVEL_DESIGN false
 
 SceneRender::SceneRender() : _rMountain(std::make_unique<olc::Renderable>()),
   _rStones(std::make_unique<olc::Renderable>()),
@@ -36,18 +36,18 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
     OlcHelper::CreateOneColorDecal(_rStones.get(), pix(S->Colors[1]));
     OlcHelper::CreateOneColorDecal(_rWall.get(), pix(S->Colors[1]));
     auto houseCol = pix(S->Colors[0]);
-    houseCol.a = 150;
+    houseCol.a = S->Scenery == "hard" ? 255 : 150;
     OlcHelper::CreateOneColorDecal(_rHouse.get(), houseCol);
 
     _rendsCreated = true;
   }
 
-#ifdef LEVEL_DESIGN
-  pge->Clear(olc::GREY);
-#else
+// #ifdef LEVEL_DESIGN
+//   pge->Clear(olc::GREY);
+// #else
   // background
   pge->DrawDecal({0.0f,0.0f}, AS.Decal(S->Scenery), {0.8,0.8});
-#endif
+//#endif
 
   auto font = FT.Font("Alkia", FontSize::SMALLER);
   float f = std::max(S->Winning_time-S->Time, 0.0f);
@@ -70,27 +70,28 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
   std::vector<PT<float>> vPts;
   std::array<olc::vf2d, 4> arr = {};
 
-#ifdef LEVEL_DESIGN
-  for (int i = S->MountainIds.x; i <= S->MountainIds.y; i++)
-  {
-    vPts = S->GetPolygon(i);
-    {
-      arr[0].x = vPts[0].x; arr[0].y = vPts[0].y;
-      arr[1].x = vPts[1].x; arr[1].y = vPts[1].y;
-      arr[2].x = vPts[2].x; arr[2].y = vPts[2].y;
-      arr[3].x = vPts[3].x; arr[3].y = vPts[3].y;
-    }
-    pge->DrawWarpedDecal(decalById(i), arr);
-  }
-#endif
+// #ifdef LEVEL_DESIGN
+//   for (int i = S->MountainIds.x; i <= S->MountainIds.y; i++)
+//   {
+//     vPts = S->GetPolygon(i);
+//     {
+//       arr[0].x = vPts[0].x; arr[0].y = vPts[0].y;
+//       arr[1].x = vPts[1].x; arr[1].y = vPts[1].y;
+//       arr[2].x = vPts[2].x; arr[2].y = vPts[2].y;
+//       arr[3].x = vPts[3].x; arr[3].y = vPts[3].y;
+//     }
+//     pge->DrawWarpedDecal(decalById(i), arr);
+//   }
+// #endif
 
-  auto heliSprite = AS.Sprite("helicopter")->Size();
+  auto heliSprite = S->Scenery == "hard" ? AS.Sprite("helicopter_night")->Size() : AS.Sprite("helicopter")->Size();
   for (const auto& heli : S->Helis)
   {
+    auto d = S->Scenery == "hard" ? AS.Decal("helicopter_night") : AS.Decal("helicopter"); 
     pge->DrawDecal({
       heli.Pos.x - heli.Scale.x*heliSprite.x/2.0f,
       heli.Pos.y - heli.Scale.y*heliSprite.y/2.0f},
-      AS.Decal("helicopter"), {heli.Scale.x, heli.Scale.y});
+      d, {heli.Scale.x, heli.Scale.y});
 
     if (heli.payLoad && !heli.fliesAway)
     {
@@ -150,13 +151,13 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
   {
     font = FT.Font("Alkia", FontSize::BIG);
     dec = font->RenderStringToDecal(
-      utf8::utf8to32(S->StatusText1), pix(S->Colors[0]));
+      utf8::utf8to32(S->StatusText1), pix(S->Scenery == "hard" ? S->Colors[3] : S->Colors[0]));
     pge->DrawDecal({(float)CO.W/2.0f-dec->sprite->width/2.0f,
       (float)CO.H/2.0f-dec->sprite->height- 25.0f}, dec);
 
     font = FT.Font("Alkia", FontSize::NORMAL);
     dec = font->RenderStringToDecal(
-      utf8::utf8to32(S->StatusText2), pix(S->Colors[0]));
+      utf8::utf8to32(S->StatusText2), pix(S->Scenery == "hard" ? S->Colors[3] : S->Colors[0]));
     pge->DrawDecal({(float)CO.W/2.0f-dec->sprite->width/2.0f,
       (float)CO.H/2.0f+ 25.0f}, dec);
   }
@@ -168,7 +169,7 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
     dec = font->RenderStringToDecal(
         utf8::utf8to32(std::string("BACK")), pix(S->Colors[0]));
   }
-  catch (std::exception ex)
+  catch (std::exception& ex)
   {
     std::cout << ex.what();
   }
@@ -176,9 +177,9 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
     {S->BackBox.x,S->BackBox.y});
   pge->DrawDecal({0.0f, (float)CO.H-dec->sprite->height}, dec);
 
-#if LEVEL_DESIGN
+// #if LEVEL_DESIGN
 
-  pge->DrawStringDecal({0,0}, pge->GetMousePos().str(), olc::BLACK);
+//   pge->DrawStringDecal({0,0}, pge->GetMousePos().str(), olc::BLACK);
 
-#endif
+// #endif
 }

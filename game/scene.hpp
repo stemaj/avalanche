@@ -27,7 +27,8 @@ public:
 //#ifdef STEMAJ_DEBUG
       if (std::fabs(ret[3].x) < 1e-3 && std::fabs(ret[3].y) < 1e-3 && id != 3002)
       {
-        ret[3].x = ret[0].x-1.0f;
+        ret[0].x += 1.0f;
+        ret[3].x = ret[0].x-2.0f;
         ret[3].y = ret[0].y-1.0f;
         std::cout << id << ": Pt " << i << " is Zero\n";
       }
