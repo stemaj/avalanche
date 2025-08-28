@@ -1,2 +1,35 @@
-Play it here:
+## Play it here:  
 https://riegel.itch.io/avalanche
+
+## Thank you:  
+
+physics engine:  
+[BOX2D](https://box2d.org/)  
+  
+sound engine:  
+[Soloud](https://solhsa.com/soloud/)  
+  
+graphics engine:  
+[OLC Pixelgameengine](https://github.com/OneLoneCoder/olcPixelGameEngine)  
+  
+arts created with:   
+[Procreate on IPad](https://procreate.com/)  
+  
+color palette:  
+[Bicycle](https://lospec.com/palette-list/bicycle)  
+
+font:  
+[Alkia](https://font.download/font/alkia)  
+  
+sounds:
+- [logo](https://pixabay.com/de/music/intro-outro-breaking-news-177297/)
+- [intro](https://pixabay.com/music/jingles-groovy-energy-sports-80-bpm-short-12275/)
+- [menu](https://pixabay.com/sound-effects/hard-rock-logo-108960/)
+- [helicopter](https://pixabay.com/de/sound-effects/helicopter-sound-41975/)
+- [stones](https://www.youtube.com/watch?v=rv2y6owcvhc)
+- [birds](https://pixabay.com/de/sound-effects/voice-birds-in-the-world-9241/)
+  
+more used 3rd party stuff:
+- [utfcpp](https://github.com/nemtrif/utfcpp)
+- [sol2](https://sol2.readthedocs.io/en/latest/)
+- [GENie](https://github.com/bkaradzic/GENie)

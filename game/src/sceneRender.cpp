@@ -1,6 +1,7 @@
 #include "olcTemplate/game/guiElements.hpp"
 #include <algorithm>
 #include <cstdint>
+#include <exception>
 #include <game/sceneRender.hpp>
 #include <game/scene.hpp>
 #include <olcTemplate/game/coordinates.hpp>
@@ -162,8 +163,15 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
 
   // back button
   font = FT.Font("Alkia", FontSize::SMALLEST);
-  dec = font->RenderStringToDecal(
-      utf8::utf8to32(std::string("BACK")), pix(S->Colors[0]));
+  try
+  {
+    dec = font->RenderStringToDecal(
+        utf8::utf8to32(std::string("BACK")), pix(S->Colors[0]));
+  }
+  catch (std::exception ex)
+  {
+    std::cout << ex.what();
+  }
   pge->FillRectDecal({0.0f,(float)CO.H-S->BackBox.y},
     {S->BackBox.x,S->BackBox.y});
   pge->DrawDecal({0.0f, (float)CO.H-dec->sprite->height}, dec);

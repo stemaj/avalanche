@@ -136,7 +136,7 @@ std::optional<std::unique_ptr<State>> Scene::Update(
     }
   }
 	
-	if (input.leftMouseClicked)
+	if (input.leftMouseClicked || input.spacePressed)
 	{
     auto it = std::find_if(Helis.begin(), Helis.end(),
       [](Helicopter& h){return h.payLoad == true && h.fliesAway == false;});
@@ -163,14 +163,8 @@ std::optional<std::unique_ptr<State>> Scene::Update(
   {
     if (_cl_house->IsInContactWithId(1000, 0))
     {
-      float fac = 1.0f;
-      if (Scenery == "hard")
-      {
-        fac = -1.0f;
-      }
-
-      _world.SetBoostXY(3001, fac*100.0f, 150.0f);
-      _world.SetBoostXY(3002, fac*-125.0f, 75.0f);
+      _world.SetBoostXY(3001, -100.0f, 150.0f);
+      _world.SetBoostXY(3002, -125.0f, 75.0f);
       _levelEndTime = Time + 5.0f;
       StatusText1 = "YOU FAILED !!!";
       StatusText2 = "YOUR HOME IS LOST.";
@@ -178,14 +172,8 @@ std::optional<std::unique_ptr<State>> Scene::Update(
     }
     if (_cl_house->IsInContactWithId(3000, 2000))
     {
-      float fac = 1.0f;
-      if (Scenery == "hard")
-      {
-        fac = -1.0f;
-      }
-
-      _world.SetBoostXY(3001, fac*(-50.0f), 10.0f);
-      _world.SetBoostXY(3002, fac*(-60.0f), 10.0f);
+      _world.SetBoostXY(3001, -80.0f, 50.0f);
+      _world.SetBoostXY(3002, -10.0f, 20.0f);
       _levelEndTime = Time + 5.0f;
       StatusText1 = "YOU FOOL !!!";
       StatusText2 = "THIS WAS A VERY BAD IDEA.";

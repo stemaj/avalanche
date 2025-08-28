@@ -42,18 +42,27 @@ medium_rects = {
   {3001,  { 40.0,320.0 },  { 100.0, 320.0 },   house_size, 2,  1.0, house_rest, house_fric, 0.0, 0.0},
 }
 
-hard_rects = {
-  {1001,  { -100.0,350.0 },  { 410.0, 350.0 },   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
-  {1002,  {  410.0,350.0 },  { 430.0, 320.0 },   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
-  {1003,  {  430.0,320.0 },  { 530.0, 320.0 },   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
-  {1004,  {  530.0,320.0 },  { 600.0, 300.0 },   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
-  {1005,  { 600.0, 300.0 },  { 550.0, 160.0 },   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
-  {1006,  { 550.0, 160.0 },  { 430.0, 110.0 },   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
-  {1007,  { 430.0, 110.0 },  { 540.0,  60.0 },   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
-  {1008,  { 540.0, 60.0 },  { 780.0,  -10.0 },   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
-  {1009,  { 780.0, -10.0 },   { 900.0, -150.0 },   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
+local hpt1 = { 300.0, 350.0 }
+local hpt2 = { 380.0, 300.0 }
+local hpt3 = { 450.0, 180.0 }
+local hpt4 = { 550.0, 100.0 }
+local hpt5 = { 640.0, 20.0 }
+local hpt6 = { 670.0, -10.0 }
+local hpt7 = { 800.0, -100.0 }
+local hpt8 = { 1000.0, -150.0 }
 
-  {3001,  { 450.0,320.0 },  { 510.0, 320.0 },   house_size, 2,  1.0, house_rest, house_fric, 0.0, 0.0},
+
+hard_rects = {
+  {1001,  { -100.0,350.0 },  hpt1,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
+  {1002,  hpt1,  hpt2,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
+  {1003,  hpt2,  hpt3,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
+  {1004,  hpt3,  hpt4,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
+  {1005,  hpt4,  hpt5,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
+  {1006,  hpt5,  hpt6,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
+  {1007,  hpt6,  hpt7,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
+  {1008,  hpt7,  hpt8,   thickness, 0,  1.0, rest, fric, 0.0, 0.0},
+
+  {3001,  { 40.0,320.0 },  { 100.0, 320.0 },   house_size, 2,  1.0, house_rest, house_fric, 0.0, 0.0},
 }
 
 box2d_scale = 0.01 --nicht aendern...
