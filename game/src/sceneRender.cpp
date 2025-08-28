@@ -167,4 +167,10 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
   pge->FillRectDecal({0.0f,(float)CO.H-S->BackBox.y},
     {S->BackBox.x,S->BackBox.y});
   pge->DrawDecal({0.0f, (float)CO.H-dec->sprite->height}, dec);
+
+#if LEVEL_DESIGN
+
+  pge->DrawStringDecal({0,0}, pge->GetMousePos().str(), olc::BLACK);
+
+#endif
 }

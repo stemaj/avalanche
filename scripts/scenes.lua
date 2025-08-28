@@ -6,28 +6,28 @@ stones_dist_pos = { 5.0, 20.0 }
 wall_dist_neg = { -51.0, -10.0 }
 wall_dist_pos = { 10.0, 51.0 }
 
-easy_winning_time = 20.0
+easy_winning_time = 9920.0
 easy_avalanche_speed = 2.0
 easy_mountainIds = 1008
-easy_stone_spawn = { 850.0, -100.0 }
+easy_stone_spawn = { 9850.0, -100.0 }
 easy_stone_angle = 1.27
 easy_stone_rest = 0.5
-easy_stone_fric = 0.3
+easy_stone_fric = 0.25
 easy_wall_angle = 0.0
 easy_wall_rest = 0.05
-easy_wall_fric = 0.3
+easy_wall_fric = 0.25
 easy_roof_height = 60
 
 medium_winning_time = 20.0
-medium_avalanche_speed = 3.0
+medium_avalanche_speed = 4.0
 medium_mountainIds = 1008
 medium_stone_spawn = { 850.0, -100.0 }
 medium_stone_angle = 1.27
 medium_stone_rest = 0.5
-medium_stone_fric = 0.3
+medium_stone_fric = 0.25
 medium_wall_angle = 0.0
 medium_wall_rest = 0.05
-medium_wall_fric = 0.3
+medium_wall_fric = 0.25
 medium_roof_height = 60
 
 hard_winning_time = 20.0
