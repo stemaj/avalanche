@@ -19,23 +19,7 @@ public:
   int NextSpawnId = 1;
 	int NextWallSpawnId = 2001;
 
-  std::vector<PT<float>> GetPolygon(const int id) { 
-    auto ret = _world.GetPolygons()[id];
-
-    for (int i = 0; i < 4; i++)
-    {
-//#ifdef STEMAJ_DEBUG
-      if (std::fabs(ret[3].x) < 1e-3 && std::fabs(ret[3].y) < 1e-3 && id != 3002)
-      {
-        ret[0].x += 1.0f;
-        ret[3].x = ret[0].x-2.0f;
-        ret[3].y = ret[0].y-1.0f;
-        std::cout << id << ": Pt " << i << " is Zero\n";
-      }
-//#endif
-    }
-    return ret.empty() ? std::vector<PT<float>>{} : ret;
-  }
+  std::vector<PT<float>> GetPolygon(const int id);
 
   struct Helicopter
   {

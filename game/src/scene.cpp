@@ -216,6 +216,22 @@ std::optional<std::unique_ptr<State>> Scene::Update(
   return RequestForMainMenu(getOutOfHere, fElapsedTime);
 }
 
+std::vector<PT<float>> Scene::GetPolygon(const int id)
+{
+  auto ret = _world.GetPolygons()[id];
+
+  for (int i = 0; i < 4; i++)
+  {
+    if (std::fabs(ret[3].x) < 1e-3 && std::fabs(ret[3].y) < 1e-3 && id != 3002)
+    {
+      std::cout << id << ": Pt " << i << " is Zero\n";
+      ret[3].x = (ret[0].x + ret[2].x) / 2.0f;
+      ret[3].y = (ret[0].y + ret[2].y) / 2.0f;
+    }
+  }
+  return ret.empty() ? std::vector<PT<float>>{} : ret;
+}
+
 Render* Scene::GetRender()
 {
   return _render.get();

@@ -15,7 +15,7 @@
 
 using namespace stemaj;
 
-#define LEVEL_DESIGN false
+//#define LEVEL_DESIGN
 
 SceneRender::SceneRender() : _rMountain(std::make_unique<olc::Renderable>()),
   _rStones(std::make_unique<olc::Renderable>()),
@@ -42,12 +42,12 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
     _rendsCreated = true;
   }
 
-// #ifdef LEVEL_DESIGN
-//   pge->Clear(olc::GREY);
-// #else
+#ifdef LEVEL_DESIGN
+  pge->Clear(olc::GREY);
+#else
   // background
   pge->DrawDecal({0.0f,0.0f}, AS.Decal(S->Scenery), {0.8,0.8});
-//#endif
+#endif
 
   auto font = FT.Font("Alkia", FontSize::SMALLER);
   float f = std::max(S->Winning_time-S->Time, 0.0f);
@@ -70,19 +70,19 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
   std::vector<PT<float>> vPts;
   std::array<olc::vf2d, 4> arr = {};
 
-// #ifdef LEVEL_DESIGN
-//   for (int i = S->MountainIds.x; i <= S->MountainIds.y; i++)
-//   {
-//     vPts = S->GetPolygon(i);
-//     {
-//       arr[0].x = vPts[0].x; arr[0].y = vPts[0].y;
-//       arr[1].x = vPts[1].x; arr[1].y = vPts[1].y;
-//       arr[2].x = vPts[2].x; arr[2].y = vPts[2].y;
-//       arr[3].x = vPts[3].x; arr[3].y = vPts[3].y;
-//     }
-//     pge->DrawWarpedDecal(decalById(i), arr);
-//   }
-// #endif
+#ifdef LEVEL_DESIGN
+  for (int i = S->MountainIds.x; i <= S->MountainIds.y; i++)
+  {
+    vPts = S->GetPolygon(i);
+    {
+      arr[0].x = vPts[0].x; arr[0].y = vPts[0].y;
+      arr[1].x = vPts[1].x; arr[1].y = vPts[1].y;
+      arr[2].x = vPts[2].x; arr[2].y = vPts[2].y;
+      arr[3].x = vPts[3].x; arr[3].y = vPts[3].y;
+    }
+    pge->DrawWarpedDecal(decalById(i), arr);
+  }
+#endif
 
   auto heliSprite = S->Scenery == "hard" ? AS.Sprite("helicopter_night")->Size() : AS.Sprite("helicopter")->Size();
   for (const auto& heli : S->Helis)
@@ -177,9 +177,7 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
     {S->BackBox.x,S->BackBox.y});
   pge->DrawDecal({0.0f, (float)CO.H-dec->sprite->height}, dec);
 
-// #if LEVEL_DESIGN
-
-//   pge->DrawStringDecal({0,0}, pge->GetMousePos().str(), olc::BLACK);
-
-// #endif
+#if LEVEL_DESIGN
+  pge->DrawStringDecal({0,0}, pge->GetMousePos().str(), olc::BLACK);
+#endif
 }

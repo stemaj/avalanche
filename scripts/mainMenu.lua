@@ -1,5 +1,8 @@
 dofile('scripts/colors.lua')
 
+sound = "./assets/mp3/wind.mp3"
+sound_volume = 1.0
+
 background_color = 0
 
 button_normal_color = 2
