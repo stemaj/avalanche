@@ -51,10 +51,17 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
 
   auto font = FT.Font("Alkia", FontSize::SMALLER);
   float f = std::max(S->Winning_time-S->Time, 0.0f);
-  auto dec = font->RenderStringToDecal(
-      utf8::utf8to32(std::to_string(f)), pix(S->Colors[3]));
-  pge->DrawDecal({(float)CO.W-100.0f,
-    (float)CO.H-dec->sprite->height - 10.0f}, dec);
+  try
+  {
+    auto dec = font->RenderStringToDecal(
+        utf8::utf8to32(std::to_string(f)), pix(S->Colors[3]));
+    pge->DrawDecal({(float)CO.W-100.0f,
+      (float)CO.H-dec->sprite->height - 10.0f}, dec);
+  }
+  catch (std::exception& ex)
+  {
+    std::cout << "Time" << ex.what();
+  }
 
   auto decalById = [&](int id){
     if (id > 1000 && id < 2000)
@@ -150,32 +157,46 @@ void SceneRender::DoRender(olc::PixelGameEngine* pge, float fElapsedTime, State*
   if (S->StatusTextTime < S->Time)
   {
     font = FT.Font("Alkia", FontSize::BIG);
-    dec = font->RenderStringToDecal(
-      utf8::utf8to32(S->StatusText1), pix(S->Scenery == "hard" ? S->Colors[3] : S->Colors[0]));
-    pge->DrawDecal({(float)CO.W/2.0f-dec->sprite->width/2.0f,
-      (float)CO.H/2.0f-dec->sprite->height- 25.0f}, dec);
+    try
+    {
+      auto dec = font->RenderStringToDecal(
+        utf8::utf8to32(S->StatusText1), pix(S->Scenery == "hard" ? S->Colors[3] : S->Colors[0]));
+      pge->DrawDecal({(float)CO.W/2.0f-dec->sprite->width/2.0f,
+        (float)CO.H/2.0f-dec->sprite->height- 25.0f}, dec);
+    }
+    catch(std::exception& ex)
+    {
+      std::cout << "Exception StatusText2" << ex.what();
+    }
 
     font = FT.Font("Alkia", FontSize::NORMAL);
-    dec = font->RenderStringToDecal(
-      utf8::utf8to32(S->StatusText2), pix(S->Scenery == "hard" ? S->Colors[3] : S->Colors[0]));
-    pge->DrawDecal({(float)CO.W/2.0f-dec->sprite->width/2.0f,
-      (float)CO.H/2.0f+ 25.0f}, dec);
+    try
+    {
+      auto dec = font->RenderStringToDecal(
+        utf8::utf8to32(S->StatusText2), pix(S->Scenery == "hard" ? S->Colors[3] : S->Colors[0]));
+      pge->DrawDecal({(float)CO.W/2.0f-dec->sprite->width/2.0f,
+        (float)CO.H/2.0f+ 25.0f}, dec);
+    }
+    catch(std::exception& ex)
+    {
+      std::cout << "Exception StatusText2" << ex.what();
+    }
   }
 
   // back button
   font = FT.Font("Alkia", FontSize::SMALLEST);
   try
   {
-    dec = font->RenderStringToDecal(
+    auto dec = font->RenderStringToDecal(
         utf8::utf8to32(std::string("BACK")), pix(S->Colors[0]));
+    pge->FillRectDecal({0.0f,(float)CO.H-S->BackBox.y},
+      {S->BackBox.x,S->BackBox.y});
+    pge->DrawDecal({0.0f, (float)CO.H-dec->sprite->height}, dec);
   }
   catch (std::exception& ex)
   {
-    std::cout << ex.what();
+    std::cout << "BACK" << ex.what();
   }
-  pge->FillRectDecal({0.0f,(float)CO.H-S->BackBox.y},
-    {S->BackBox.x,S->BackBox.y});
-  pge->DrawDecal({0.0f, (float)CO.H-dec->sprite->height}, dec);
 
 #if LEVEL_DESIGN
   pge->DrawStringDecal({0,0}, pge->GetMousePos().str(), olc::BLACK);
